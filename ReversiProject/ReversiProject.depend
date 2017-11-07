@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1510064536 source:/home/suri/Documents/CProject/Reversi/ReversiProject/main.c
+	<stdio.h>
+	<stdlib.h>
+	"header.h"
+
+1510063106 /home/suri/Documents/CProject/Reversi/ReversiProject/server.c
+	<sys/socket.h>
+	<arpa/inet.h>
+
+1510064568 source:/home/suri/Documents/CProject/Reversi/ReversiProject/server.c
+	"header.h"
+	<sys/socket.h>
+	<arpa/inet.h>
+
+1510064655 /home/suri/Documents/CProject/Reversi/ReversiProject/header.h
+
+1510064536 source:/home/suri/Documents/CProject/Reversi/ReversiProject/grille.c
+	"header.h"
+
+1510064289 /home/suri/Documents/CProject/Reversi/ReversiProject/grille.c
+
