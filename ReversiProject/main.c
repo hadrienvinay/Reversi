@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 #include "header.h"
 
 
 int main(int argc , char *argv[]) {
 
 creationGrille();
-printf("hello");
-
+updateGrid(0b10010011);
 return 0;
 }
