@@ -1,23 +1,13 @@
-<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
 /*
- * 
+ *
  */
-int main(int argc , char *argv[]) {
-    
-=======
-#include "header.h"
-#include <sys/socket.h>
-#include <arpa/inet.h>
-
 
 void initServer(){
-
->>>>>>> b6d08076d707c93b2d3135f7d2c4fb25da207203
 int sock;
 struct sockaddr_in server;
 char message[1000] , server_reply[2000];
@@ -44,11 +34,5 @@ break; }
 puts("Server reply :");
 puts(server_reply); }
 close(sock);
-<<<<<<< HEAD
-return 0; 
 
 }
-
-=======
-}
->>>>>>> b6d08076d707c93b2d3135f7d2c4fb25da207203

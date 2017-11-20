@@ -21,3 +21,14 @@
 
 1510064289 /home/suri/Documents/CProject/Reversi/ReversiProject/grille.c
 
+1511172959 source:/home/arnaud/Documents/C_Reversi/Reversi/ReversiProject/grille.c
+	"header.h"
+
+1511172959 /home/arnaud/Documents/C_Reversi/Reversi/ReversiProject/header.h
+
+1511172959 source:/home/arnaud/Documents/C_Reversi/Reversi/ReversiProject/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ncurses.h>
+	"header.h"
+
