@@ -37,7 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/grille.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/mouv.o \
+	${OBJECTDIR}/placement.o \
 	${OBJECTDIR}/server.o
 
 
@@ -75,10 +75,10 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
-${OBJECTDIR}/mouv.o: mouv.c
+${OBJECTDIR}/placement.o: placement.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mouv.o mouv.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/placement.o placement.c
 
 ${OBJECTDIR}/server.o: server.c
 	${MKDIR} -p ${OBJECTDIR}

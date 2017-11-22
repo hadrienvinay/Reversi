@@ -6,6 +6,7 @@ struct player{
 char nom[20];
 int point;
 int time;
+int state =0;
 };
 
 struct slot 
