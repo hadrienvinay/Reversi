@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <header.h>
 
 
-int* placer(int* tab, int x, int y, int color)
+int* placer(int x, int y /*HEXA ETAT JOUEUR ACTUEL*/)
 {
 
 
@@ -26,7 +25,24 @@ case "b":
 	else print
 break;
 
-default printf("erreur");
-
+    default: printf("erreur");
+}
 return tab;
 } 
+
+struct slot getSlot(int x, int y)
+{
+    int i,j;
+    struct slot slot;
+    for(i=0; i<SIZE; i++)
+    {
+        for(j=0; j<SIZE; j++)
+        {
+            if((matrice_jeu[i][j].x == x) && (matrice_jeu[i][j].y == y))
+            {
+                slot = matrice_jeu[i][j];
+            }
+        }
+    }
+    return slot;
+}

@@ -1,5 +1,4 @@
 #include "header.h"
-#define SIZE 2
 
 void creationGrille(){
 int i,j;

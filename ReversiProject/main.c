@@ -3,7 +3,6 @@
 #include <ncurses.h>
 #include "header.h"
 
-
 int main(int argc , char *argv[]) {
 
 creationGrille();

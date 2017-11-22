@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=reversip
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/reversip
+CND_ARTIFACT_NAME_Debug=reversiproject
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/reversiproject
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=reversip.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/reversip.tar
+CND_PACKAGE_NAME_Debug=reversiproject.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/reversiproject.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=reversip
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/reversip
+CND_ARTIFACT_NAME_Release=reversiproject
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/reversiproject
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=reversip.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/reversip.tar
+CND_PACKAGE_NAME_Release=reversiproject.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/reversiproject.tar
 #
 # include compiler specific variables
 #
