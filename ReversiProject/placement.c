@@ -32,6 +32,7 @@ int placer(int x, int y, player player)
         }
     
     
+    
 /*
 switch(dir)
 {
@@ -369,9 +370,9 @@ struct slot getSlot(int x, int y)
     {
         for(j=0; j < SIZE; j++)
         {
-            if((matrice_jeu[i][j].x == x) && (matrice_jeu[i][j].y == y))
+            if((matrice[i][j]->x == x) && (matrice[i][j]->y == y))
             {
-                slot = matrice_jeu[i][j];
+                slot = matrice[i][j];
             }
         }
     }
