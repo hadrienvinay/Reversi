@@ -1,18 +1,16 @@
-#include <header.h>
+#include "header.h"
 
 
-
-
-int placer(int x, int y, player player)
+int placer(int x, int y, struct player *player)
 {
-    slot slot = getSlot(x,y);
+    struct slot *slot = getSlot(x,y);
     //struct slot markSlot;
-    
+
 
     /*IF THE SLOT IS EMPTY WE CAN PLAY*/
-    if(slot.state == 0){
-        
-        if(isAble(x,y,player)){ 
+    if(slot->state == 0){
+
+        if(isAble(x,y,player)){
             horizontalCheck(x,y,player);
             verticalCheck(x,y,player);
             diagonalCheck(x,y,player);
@@ -21,31 +19,31 @@ int placer(int x, int y, player player)
         else {
             printf("You can't play on that slot... sorry !");
             return 0;
-        }    
-        
-            
+        }
+
+
     }
       /*IF THE SLOT IS NOT EMPTY WE ASK AGAIN*/
     else {
             printf("Your slot is not empty... sorry !");
             return 0;
         }
-    
-    
-    
+
+
+
 /*
 switch(dir)
 {
 case "w":
 	if(tab[x+1] != NULL)
-	{ 
+	{
 		tab[x+1]=tab[x];
 		tab[x]=tab[x-1];
 	}
-	else printf("size error"); 
+	else printf("size error");
 break;
 
-case "b": 
+case "b":
 	if(tab[x-1] != NULL)
 	{
 		tab[x-1]=tab[x];
@@ -57,24 +55,24 @@ break;
     default: printf("erreur");
 }
 */
-} 
+}
 
 /*We check horizontaly the slot we can eat*/
-void horizontalCheck(int x, int y, player player) 
-{ 
-    
-    slot checkSlot;
-    int i=x;    
+void horizontalCheck(int x, int y, struct player *player)
+{
+
+    struct slot *checkSlot;
+    int i=x;
     int j=y;
     int burn=0; //if slot changes color
     int mark = 0;
 
 
-    while(i >= 0 && burn == 0){     //We check from x to x-- 
+    while(i >= 0 && burn == 0){     //We check from x to x--
 
         i--;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -86,12 +84,12 @@ void horizontalCheck(int x, int y, player player)
         mark++;
         for(i=x; i>x-mark; i--){
 
-        checkSlot=getSlot(i,j);    
-        checkSlot.state=player.state;  //we change the state of the slot that has been token
-        } 
+        checkSlot=getSlot(i,j);
+        checkSlot->state=player->state;  //we change the state of the slot that has been token
+        }
     }
 
-    i=x;    
+    i=x;
     j=y;
     burn=0; //if slot changes color
     mark = 0;
@@ -100,7 +98,7 @@ void horizontalCheck(int x, int y, player player)
 
         i++;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -112,29 +110,29 @@ void horizontalCheck(int x, int y, player player)
         mark++;
         for(i=x; i<x+mark; i++){
 
-        checkSlot=getSlot(i,j);    
-        checkSlot.state=player.state;       //we change the state of the slot that has been token
-        } 
+        checkSlot=getSlot(i,j);
+        checkSlot->state=player->state;       //we change the state of the slot that has been token
+        }
     }
 }
 
 /*We check verticaly the slot we can eat*/
-void verticalCheck(int x, int y, player player)    
-{ 
-    
-    slot checkSlot;
-    int i=x;    
+void verticalCheck(int x, int y, struct player *player)
+{
+
+    struct slot *checkSlot;
+    int i=x;
     int j=y;
     int burn=0; //if slot changes color
     int mark = 0;
 
-    
-    
-    while(j >= 0 && burn == 0){     //We check from y to y-- 
+
+
+    while(j >= 0 && burn == 0){     //We check from y to y--
 
         j--;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -146,21 +144,21 @@ void verticalCheck(int x, int y, player player)
         mark++;
         for(j=y; j>y-mark; j--){
 
-        checkSlot=getSlot(i,j);    
-        checkSlot.state=player.state;       //we change the state of the slot that has been token
-        } 
+        checkSlot=getSlot(i,j);
+        checkSlot->state=player->state;       //we change the state of the slot that has been token
+        }
     }
 
-    i=x;    
+    i=x;
     j=y;
     burn=0; //if slot changes color
     mark = 0;
 
-    while(j < SIZE && burn == 0){   //We check from y to y++ 
+    while(j < SIZE && burn == 0){   //We check from y to y++
 
         j++;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -172,18 +170,18 @@ void verticalCheck(int x, int y, player player)
         mark++;
         for(j=y; j<y+mark; j++){
 
-        checkSlot=getSlot(i,j);    
-        checkSlot.state=player.state;       //we change the state of the slot that has been token
-        } 
+        checkSlot=getSlot(i,j);
+        checkSlot->state=player->state;       //we change the state of the slot that has been token
+        }
     }
 }
 
 /*We check diagonaly the slot we can eat*/
-void diagonalCheck(int x, int y, player player)    
-{ 
-    
-    slot checkSlot;
-    int i=x;    
+void diagonalCheck(int x, int y, struct player *player)
+{
+
+    struct slot *checkSlot;
+    int i=x;
     int j=y;
     int burn=0; //if slot changes color
     int mark = 0;
@@ -194,7 +192,7 @@ void diagonalCheck(int x, int y, player player)
         j--;
         i--;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -207,13 +205,13 @@ void diagonalCheck(int x, int y, player player)
         for(i=x; i>x-mark; i--){
             for(j=y; j=y-mark; j--){
 
-                checkSlot=getSlot(i,j);    
-                checkSlot.state=player.state;       //we change the state of the slot that has been token
+                checkSlot=getSlot(i,j);
+                checkSlot->state=player->state;       //we change the state of the slot that has been token
             }
-        } 
+        }
     }
 
-    i=x;    
+    i=x;
     j=y;
     burn=0; //if slot changes color
     mark = 0;
@@ -223,7 +221,7 @@ void diagonalCheck(int x, int y, player player)
         i++;
         j++;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -235,17 +233,17 @@ void diagonalCheck(int x, int y, player player)
         mark++;
         for(i=x; i<x+mark; i++){
             for(j=y; j<y+mark; j++){
-                
-                checkSlot=getSlot(i,j);    
-                checkSlot.state=player.state;       //we change the state of the slot that has been token
+
+                checkSlot=getSlot(i,j);
+                checkSlot->state=player->state;       //we change the state of the slot that has been token
             }
-        } 
+        }
     }
-    
-    int i=x;    
-    int j=y;
-    int burn=0; //if slot changes color
-    int mark = 0;
+
+    i=x;
+    j=y;
+    burn=0; //if slot changes color
+    mark = 0;
 
 
     while(i >= 0 && j < SIZE && burn == 0){     //we check from x,y to x--,y++
@@ -253,7 +251,7 @@ void diagonalCheck(int x, int y, player player)
         i--;
         j++;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -266,17 +264,17 @@ void diagonalCheck(int x, int y, player player)
         for(i=x; i>x-mark; i--){
             for(j=y; j<y+mark; j++){
 
-                checkSlot=getSlot(i,j);    
-                checkSlot.state=player.state;       //we change the state of the slot that has been token
+                checkSlot=getSlot(i,j);
+                checkSlot->state=player->state;       //we change the state of the slot that has been token
             }
-        } 
+        }
     }
-    
-    
-    int i=x;    
-    int j=y;
-    int burn=0; //if slot changes color
-    int mark = 0;
+
+
+    i=x;
+    j=y;
+    burn=0; //if slot changes color
+    mark = 0;
 
 
     while(j >= 0 && i < SIZE && burn == 0){     //we check from x,y to x++,y--
@@ -284,7 +282,7 @@ void diagonalCheck(int x, int y, player player)
         j--;
         i++;
         checkSlot=getSlot(i,j);
-        if(checkSlot.state != 0 && checkSlot.state != player.state){
+        if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
         }
@@ -297,75 +295,75 @@ void diagonalCheck(int x, int y, player player)
         for(i=x; i<x+mark; i++){
             for(j=y; j>y-mark; j--){
 
-                checkSlot=getSlot(i,j);    
-                checkSlot.state=player.state;       //we change the state of the slot that has been token
+                checkSlot=getSlot(i,j);
+                checkSlot->state=player->state;       //we change the state of the slot that has been token
             }
-        } 
+        }
     }
 }
 
 /*CHECK IF THERE IS AT LEAST ONE ENNEMY SLOT AUROUND*/
-int isAble(int x, int y, player player)
+int isAble(int x, int y, struct player *player)
 {
 
     int isAble=0;
-    slot slot;
- 
+    struct slot *slot;
+
     slot=getSlot(x+1,y);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x-1,y);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x,y+1);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x,y-1);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x+1,y+1);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x-1,y-1);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x+1,y-1);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     slot=getSlot(x-1,y+1);
-    if(slot.state != 0 && slot.state != player.state){
-    
+    if(slot->state != 0 && slot->state != player->state){
+
         isAble=1;
     }
-    
+
     return isAble;
 }
 
-struct slot getSlot(int x, int y)
+struct slot *getSlot(int x, int y)
 {
     int i,j;
-    struct slot slot;
+    struct slot *slot;
     for(i=0; i < SIZE; i++)
     {
         for(j=0; j < SIZE; j++)

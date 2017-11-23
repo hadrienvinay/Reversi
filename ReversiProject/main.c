@@ -1,19 +1,24 @@
 //#include <ncurses.h>
 #include "header.h"
 
-int main(int argc , char *argv[]) {
+int main(int argc , char *argv[])
+{
+    int one,two;
+    struct player *p1,*p2;
+    p1 = (struct player *)malloc(sizeof(struct player));
+    p2 = (struct player *)malloc(sizeof(struct player));
 
-int mouv[2];
-int one;
-int two;
-initslot();
-creationGrille();
-//updateGrid(0b10010011);
-gets(mouv);
-one=mouv[0];
-two=mouv[1];
-printf("%d,%d",mouv[0],mouv[1]);
-updateBlock(1,1);
-
-return 0;
+    p1->state=1;
+    p2->state=2;
+    initslot();
+    creationGrille();
+    while(1){
+    //updateGrid(0b10010011);
+    scanf("%d",&one);
+    scanf("%d",&two);
+    printf("%d,%d\n",one,two);
+    placer(two-1,one-1,p1);
+    updateBlock();
+    }
+    return 0;
 }

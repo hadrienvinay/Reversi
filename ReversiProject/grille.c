@@ -1,6 +1,5 @@
 #include "header.h"
 
-struct slot *matrice[SIZE][SIZE];
 
 void initslot(){
     int i,j;
@@ -35,7 +34,7 @@ void initslot(){
 void creationGrille(){
 int i,j;
 char num = '1';
-char car='A';
+char car='1';
 
 for(i=0;i<SIZE+1;i++){
     for(j=0;j<SIZE+1;j++){
@@ -60,11 +59,10 @@ printf("\n");
 
 }
 
-void updateBlock(int one,int two){
+void updateBlock(){
 
-matrice[one-1][two-1]->state=2;
 char num = '1';
-char car='A';
+char car='1';
 int i,j;
 
     for(i=0;i<SIZE+1;i++){
