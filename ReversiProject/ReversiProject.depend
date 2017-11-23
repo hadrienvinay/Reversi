@@ -21,3 +21,17 @@
 
 1510064289 /home/suri/Documents/CProject/Reversi/ReversiProject/grille.c
 
+1511358512 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\server.c
+	<sys/socket.h>
+	<arpa/inet.h>
+
+1511436582 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
+	<stdio.h>
+	<stdlib.h>
+
+1511436982 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\grille.c
+	"header.h"
+
+1511438159 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
+	"header.h"
+
