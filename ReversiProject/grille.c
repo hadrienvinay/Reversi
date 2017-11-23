@@ -73,6 +73,7 @@ int i,j;
             else if(i==0){
             printf("%c",car);
             car++;
+                    
             }
             else if(j==0){
                 printf("%c",num);
