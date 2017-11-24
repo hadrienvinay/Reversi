@@ -1,27 +1,54 @@
 //#include <ncurses.h>
 #include "header.h"
 
-int main(int argc , char *argv[])
-{
+void initallegro(){
     //allegro init
     lancerToutAllegro(800,600);
-
+    //init score to 2 for each player
+    int score=2;
     //create bitmaps
     BITMAP *page;
     BITMAP *tableau;
+    BITMAP *black;
+    BITMAP *white;
     //load images
     page=create_bitmap(SCREEN_W,SCREEN_H);
     tableau=chargerImage("images/tableau.bmp");
-    /*textout_ex(screen,//Specify bitmap on the screen
+    white=chargerImage("images/jeton_blanc.bmp");
+    black=chargerImage("images/jeton_noir.bmp");
+    //change screen color
+    clear_to_color(screen, makecol(38,51,111));
+
+
+    textout_ex(screen,//Specify bitmap on the screen
              font,//Use a default font
-             "HELLO WORLD",//Specify the text to display
-             20,//X-coordinate for text
-             30,//Y-coordinate for text
-             makecol(255,255,0),//Color text yellow
-             makecol( 255,0,0) );//Put red behind text
-             */
-    blit(tableau,screen,0,0,0,100,SCREEN_W,SCREEN_H);
+             "Black Player :",//Specify the text to display
+             50,//X-coordinate for text
+             120,//Y-coordinate for text
+             makecol(255,255,255),//Color text
+             makecol( 38,51,111) );//Put color behind text
+
+    textout_ex(screen,font,"Kevin",50,140,makecol(255,255,255),makecol( 38,51,111));
+    textprintf_ex(screen, font, 50, 160, makecol(255, 255, 255),-1, "Points : %d", score);
+
+
+    textout_ex(screen,font,"White Player :",650,120,makecol(255,255,255),makecol( 38,51,111));
+    textout_ex(screen,font,"Dylan",650,140,makecol(255,255,255),makecol( 38,51,111));
+    textprintf_ex(screen, font, 650, 160, makecol(255, 255, 255),-1, "Points : %d", score);
+    //init tableau and 4 start boxes
+    // the first case is located in 200,100 ( X,Y) and each case are separated by 50px;
+
+    blit(tableau,screen,0,0,192,92,SCREEN_W,SCREEN_H);
+    blit(black,screen,0,0,404,254,SCREEN_W,SCREEN_H);
+    blit(black,screen,0,0,354,304,SCREEN_W,SCREEN_H);
+    blit(white,screen,0,0,404,304,SCREEN_W,SCREEN_H);
+    blit(white,screen,0,0,354,254,SCREEN_W,SCREEN_H);
     show_mouse(screen);
+}
+
+int main(int argc , char *argv[])
+{
+
 
     int lin,col; // get the input of the user for test
     int tour=0; // loop change for player change
@@ -32,8 +59,14 @@ int main(int argc , char *argv[])
 
     p1->state=1;
     p2->state=2;
+    p2->point=0;
+    p2->point=0;
+
     initslot();
     creationGrille();
+
+
+    initallegro();
 
     while(1){
     //updateGrid(0b10010011);

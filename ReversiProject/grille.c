@@ -12,12 +12,18 @@ void initslot(){
             newslot->x=i;
             newslot->y=j;
             newslot->state=0;
+
+            //init of black case
             if((i==SIZE/2-1 && j==SIZE/2-1) || (i==SIZE/2 && j==SIZE/2)){
                 newslot->state=2;
             }
+            //init of white case
             else if((i==SIZE/2 && j==SIZE/2-1) || (i==SIZE/2-1 && j==SIZE/2)) {
                 newslot->state=1;
+                //newslot->slot=chargerImage("images/black.bmp");
+
             }
+            //else other case are empty
             else{
                 newslot->state=0;
             }
