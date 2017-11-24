@@ -4,7 +4,7 @@
 int main(int argc , char *argv[])
 {
     int lin,col;
-
+    int tour=0;
     int one,two,i,j;
     struct player *p1,*p2;
     p1 = (struct player *)malloc(sizeof(struct player));
@@ -22,8 +22,10 @@ int main(int argc , char *argv[])
     printf("colonne :");
     scanf("%d",&col);
     printf("%d,%d\n",lin,col);
-    placer(lin,col,p1);
+    if(tour==0%2)placer(lin,col,p1);
+    else placer(lin,col,p2);
 
+    tour ++;
     updateBlock();
     }
     return 0;
