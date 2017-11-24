@@ -3,7 +3,7 @@
 
 int main(int argc , char *argv[])
 {
-    int one,two;
+    int lin,col;
     struct player *p1,*p2;
     p1 = (struct player *)malloc(sizeof(struct player));
     p2 = (struct player *)malloc(sizeof(struct player));
@@ -14,10 +14,12 @@ int main(int argc , char *argv[])
     creationGrille();
     while(1){
     //updateGrid(0b10010011);
-    scanf("%d",&one);
-    scanf("%d",&two);
-    printf("%d,%d\n",one,two);
-    placer(two-1,one-1,p1);
+    printf("ligne :");
+    scanf("%d",&lin);
+    printf("colonne :");
+    scanf("%d",&col);
+    printf("%d,%d\n",lin,col);
+    placer(lin,col,p1);
     updateBlock();
     }
     return 0;

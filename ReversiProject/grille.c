@@ -1,6 +1,5 @@
 #include "header.h"
 
-
 void initslot(){
     int i,j;
     struct slot *newslot,*nextslot;
@@ -33,24 +32,24 @@ void initslot(){
 
 void creationGrille(){
 int i,j;
-char num = '1';
-char car='1';
+char num = '0';
+char car='0';
 
-for(i=0;i<SIZE+1;i++){
-    for(j=0;j<SIZE+1;j++){
-        if(i==0 && j==0){
+for(i=-1;i<SIZE;i++){
+    for(j=-1;j<SIZE;j++){
+        if(i==-1 && j==-1){
         printf(" ");
         }
-        else if(i==0){
+        else if(i==-1){
         printf("%c",car);
         car++;
         }
-        else if(j==0){
+        else if(j==-1){
             printf("%c",num);
             num++;
         }
         else {
-        printf("%d",matrice[i-1][j-1]->state);
+        printf("%d",matrice[i][j]->state);
         }
         printf(" ");
     }
@@ -61,25 +60,25 @@ printf("\n");
 
 void updateBlock(){
 
-char num = '1';
-char car='1';
+char num = '0';
+char car='0';
 int i,j;
 
-    for(i=0;i<SIZE+1;i++){
-        for(j=0;j<SIZE+1;j++){
-            if(i==0 && j==0){
-            printf(" ");
+    for(i=-1;i<SIZE;i++){
+        for(j=-1;j<SIZE;j++){
+            if(i==-1 && j==-1){
+                printf(" ");
             }
-            else if(i==0){
-            printf("%c",car);
-            car++;
+            else if(i==-1){
+                printf("%c",car);
+                car++;
             }
-            else if(j==0){
+            else if(j==-1){
                 printf("%c",num);
                 num++;
             }
             else {
-            printf("%d",matrice[i-1][j-1]->state);
+                printf("%d",matrice[i][j]->state);
             }
             printf(" ");
         }
