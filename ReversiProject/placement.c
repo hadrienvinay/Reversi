@@ -11,9 +11,9 @@ int placer(int x, int y, struct player *player)
     if(slot->state == 0){
 
         if(isAble(x,y,player)){
-            horizontalCheck(x,y,player);
-            verticalCheck(x,y,player);
-            diagonalCheck(x,y,player);
+            horizontalChange(x,y,player);
+            verticalChange(x,y,player);
+            diagonalChange(x,y,player);
             slot = getSlot(x,y);
             if(slot->state == 0){
                 printf("You can't play on that slot... sorry !\n");
@@ -67,7 +67,7 @@ break;
 }
 
 /*We check horizontaly the slot we can eat*/
-void verticalCheck(int x, int y, struct player *player)
+void verticalChange(int x, int y, struct player *player)
 {
 
     struct slot *checkSlot;
@@ -180,7 +180,7 @@ void verticalCheck(int x, int y, struct player *player)
 }
 
 /*We check verticaly the slot we can eat*/
-void horizontalCheck(int x, int y, struct player *player)
+void horizontalChange(int x, int y, struct player *player)
 {
 
     struct slot *checkSlot;
@@ -285,7 +285,7 @@ void horizontalCheck(int x, int y, struct player *player)
 }
 
 /*We check diagonaly the slot we can eat*/
-void diagonalCheck(int x, int y, struct player *player)
+void diagonalChange(int x, int y, struct player *player)
 {
 
     struct slot *checkSlot;
