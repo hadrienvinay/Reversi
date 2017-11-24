@@ -86,6 +86,26 @@ int i,j;
     }
 }
 
+//get the actual score of the two player
+void getScore(struct player *player1,struct player *player2){
+    int i,j;
+    player1->point=0;
+    player2->point=0;
+
+    for(i=0;i<SIZE;i++){
+        for(j=0;j<SIZE;j++){
+                if(matrice[i][j]->state==1){
+                   player2->point++;
+                }
+                if(matrice[i][j]->state==2){
+                   player1->point++;
+
+                }
+        }
+    }
+
+}
+
 
 
 

@@ -2,7 +2,7 @@
 #define HEADER_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <allegro.h>
 #define SIZE 8
 
 //struct of plot
@@ -32,6 +32,7 @@ void updateBlock();
 void updateGrid(int number);
 void creationGrille();
 void udpateGrille();
+void getScore(struct player *player1,struct player *player2);
 
 //placement.c functions
 int placer(int x, int y, struct player *player);
@@ -40,6 +41,11 @@ void verticalCheck(int x, int y, struct player *player);
 void diagonalCheck(int x, int y, struct player *player);
 int isAble(int x, int y, struct player *player);
 struct slot *getSlot(int x, int y);
+
+//allegro.c functions
+BITMAP *chargerImage(char *nomFichierImage);
+void lancerToutAllegro(int largeur, int hauteur);
+
 
 
 #endif // HEADER_H_INCLUDED

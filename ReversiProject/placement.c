@@ -17,7 +17,7 @@ int placer(int x, int y, struct player *player)
             return 1;
         }
         else {
-            printf("You can't play on that slot... sorry !");
+            printf("You can't play on that slot... sorry !\n");
             return 0;
         }
 
@@ -25,7 +25,7 @@ int placer(int x, int y, struct player *player)
     }
       /*IF THE SLOT IS NOT EMPTY WE ASK AGAIN*/
     else {
-            printf("Your slot is not empty... sorry !");
+            printf("Your slot is not empty... sorry !\n");
             return 0;
         }
 
@@ -68,7 +68,7 @@ void horizontalCheck(int x, int y, struct player *player)
     int mark = 0;
 
     printf("horizontal check\n");
-    
+
     while(i >= 0 && burn == 0){     //We check from x to x--
 
         i--;
@@ -132,8 +132,8 @@ void verticalCheck(int x, int y, struct player *player)
     int mark = 0;
 
     printf("Vertical check\n");
-    
-    
+
+
     while(j >= 0 && burn == 0){     //We check from y to y--
 
         j--;
@@ -197,7 +197,7 @@ void diagonalCheck(int x, int y, struct player *player)
     int mark = 0;
 
     printf("Diagonal check\n");
-    
+
     while(j >= 0 && i >= 0 && burn == 0){     //we check from x,y to x--,y--
 
         j--;
@@ -266,7 +266,7 @@ void diagonalCheck(int x, int y, struct player *player)
         i--;
         j++;
         checkSlot=getSlot(i,j);
-        
+
         printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
@@ -298,7 +298,7 @@ void diagonalCheck(int x, int y, struct player *player)
         j=y;
         checkSlot=getSlot(i,j);
             checkSlot->state=player->state;
-    } 
+    }
 
     i=x;
     j=y;
