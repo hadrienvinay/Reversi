@@ -67,14 +67,17 @@ void horizontalCheck(int x, int y, struct player *player)
     int burn=0; //if slot changes color
     int mark = 0;
 
-
+    printf("horizontal check\n");
+    
     while(i >= 0 && burn == 0){     //We check from x to x--
 
         i--;
         checkSlot=getSlot(i,j);
+        printf("checkslot state i--: %d\n",i+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1; //if we are on checkSlot.state == player.state or on an empty slot
 
@@ -98,9 +101,11 @@ void horizontalCheck(int x, int y, struct player *player)
 
         i++;
         checkSlot=getSlot(i,j);
+        printf("checkslot state i++: %d\n",i+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1;
 
@@ -126,15 +131,18 @@ void verticalCheck(int x, int y, struct player *player)
     int burn=0; //if slot changes color
     int mark = 0;
 
-
-
+    printf("Vertical check\n");
+    
+    
     while(j >= 0 && burn == 0){     //We check from y to y--
 
         j--;
         checkSlot=getSlot(i,j);
+        printf("checkslot state j--: %d\n",j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1;
 
@@ -158,9 +166,11 @@ void verticalCheck(int x, int y, struct player *player)
 
         j++;
         checkSlot=getSlot(i,j);
+        printf("checkslot state j++: %d\n",j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",j);
         }
         else burn=1;
 
@@ -186,15 +196,18 @@ void diagonalCheck(int x, int y, struct player *player)
     int burn=0; //if slot changes color
     int mark = 0;
 
-
+    printf("Diagonal check\n");
+    
     while(j >= 0 && i >= 0 && burn == 0){     //we check from x,y to x--,y--
 
         j--;
         i--;
         checkSlot=getSlot(i,j);
+        printf("checkslot state i--: %d et j--: %d\n",i+1,j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1;
 
@@ -221,9 +234,11 @@ void diagonalCheck(int x, int y, struct player *player)
         i++;
         j++;
         checkSlot=getSlot(i,j);
+        printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1;
 
@@ -251,25 +266,39 @@ void diagonalCheck(int x, int y, struct player *player)
         i--;
         j++;
         checkSlot=getSlot(i,j);
+        
+        printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1;
 
     }
-    if(burn == 1 && mark != 0){
+    if(burn == 1 && mark != 0 && checkSlot->state == player->state){
 
+        i=x;
+        j=y;
         mark++;
-        for(i=x; i>x-mark; i--){
-            for(j=y; j<y+mark; j++){
-
-                checkSlot=getSlot(i,j);
-                checkSlot->state=player->state;       //we change the state of the slot that has been token
-            }
+        printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+        while(mark!=0)
+        {
+            printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+            checkSlot=getSlot(i,j);
+            checkSlot->state=player->state;       //we change the state of the slot that has been token
+            i--;
+            j++;
+            mark--;
         }
     }
-
+    else {
+    //soit il ne peux pas jouer soit on fait ça:
+        i=x;
+        j=y;
+        checkSlot=getSlot(i,j);
+            checkSlot->state=player->state;
+    } 
 
     i=x;
     j=y;
@@ -282,9 +311,11 @@ void diagonalCheck(int x, int y, struct player *player)
         j--;
         i++;
         checkSlot=getSlot(i,j);
+        printf("checkslot state i++: %d et j--: %d\n",i+1,j+1);
         if(checkSlot->state != 0 && checkSlot->state != player->state){
 
             mark++;
+            printf("mark: %d\n",mark);
         }
         else burn=1;
 
