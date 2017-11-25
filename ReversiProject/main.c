@@ -92,9 +92,9 @@ int main(int argc , char *argv[])
 
     while(!key[KEY_ESC]){
     // update our bitmap for infos and score
-    //clear_bitmap(scorep1);
-    //clear_bitmap(scorep2);
-    //clear_bitmap(infos);
+    clear_bitmap(scorep1);
+    clear_bitmap(scorep2);
+    clear_bitmap(infos);
 
     validMouv=0;
     //updateGrid(0b10010011);
@@ -134,9 +134,9 @@ int main(int argc , char *argv[])
     else {
         textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
     }
-//    blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
- //   blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
-   // blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
+    blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+    blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
+    blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
     }
 
     //clear the bitmap page

@@ -65,7 +65,6 @@ printf("\n");
 }
 
 void placeBlock(int x,int y,BITMAP *screen,BITMAP *color){
-    printf("\n%d,%d\n",x,y);
     x=(x*50)+104;
     y=(y*50)+204;
     //dray_sprite(screen,color,y,x);
