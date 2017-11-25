@@ -140,7 +140,13 @@ int main(int argc , char *argv[])
     }
 
     //clear the bitmap page
+    clear_bitmap(screen);
     clear_bitmap(page);
+    clear_bitmap(white);
+    clear_bitmap(black);
+    clear_bitmap(scorep1);
+    clear_bitmap(scorep2);
+    clear_bitmap(infos);
     return 0;
 }
 END_OF_MAIN();
