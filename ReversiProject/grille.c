@@ -65,9 +65,11 @@ printf("\n");
 }
 
 void placeBlock(int x,int y,BITMAP *screen,BITMAP *color){
+    printf("\n%d,%d\n",x,y);
     x=(x*50)+104;
     y=(y*50)+204;
-    draw_sprite(screen,color,y,x);
+    //dray_sprite(screen,color,y,x);
+    blit(color,screen,0,0,y,x,SCREEN_W,SCREEN_H);
 }
 
 void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black){
@@ -102,6 +104,7 @@ int i,j;
         }
     printf("\n");
     }
+    printf("affiché");
 }
 
 //get the actual score of the two player
@@ -113,10 +116,10 @@ void getScore(struct player *player1,struct player *player2){
     for(i=0;i<SIZE;i++){
         for(j=0;j<SIZE;j++){
                 if(matrice[i][j]->state==1){
-                   player2->point++;
+                   player1->point++;
                 }
                 if(matrice[i][j]->state==2){
-                   player1->point++;
+                   player2->point++;
 
                 }
         }

@@ -45,7 +45,7 @@ int isAble(int x, int y, struct player *player);
 struct slot *getSlot(int x, int y);
 
 //ia.c
-void jouer();
+int jouer(struct player *player);
 int horizontalCheck(int x, int y, struct player *player);
 int verticalCheck(int x, int y, struct player *player);
 int diagonalCheck(int x, int y, struct player *player);

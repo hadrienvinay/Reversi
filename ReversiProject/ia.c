@@ -1,13 +1,13 @@
 
 #include "header.h"
 
-void jouer()
+int jouer(struct player *player)
 {
     printf("ia de ouf");
-    struct player *player;
-    player->state=2;
+
     int i=0;
     int j=0;
+    int var;
     int x,y;
     int cpt1=0;
     int cpt2=0;
@@ -50,10 +50,8 @@ void jouer()
         }
     }
 
-    horizontalChange(powerSlot->x,powerSlot->y,2);
-    verticalChange(powerSlot->x,powerSlot->y,2);
-    diagonalChange(powerSlot->x,powerSlot->y,2);
-
+   var = placer(powerSlot->x,powerSlot->y,player);
+   return var;
 }
 
 

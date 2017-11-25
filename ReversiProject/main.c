@@ -6,10 +6,10 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BIT
     //change screen color
     clear_to_color(screen, makecol(38,51,111));
     clear_to_color(scorep1, makecol(38,51,111));
-    clear_to_color(scorep2, makecol(38,51,111));
+    clear_to_color(scorep2, makecol(200,51,1));
     clear_to_color(infos, makecol(38,51,111));
 
-
+    //black player infos
     textout_ex(screen,//Specify bitmap on the screen
              font,//Use a default font
              "Black Player :",//Specify the text to display
@@ -19,9 +19,8 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BIT
              makecol( 38,51,111) );//Put color behind text
 
     textout_ex(screen,font,"Kevin",50,140,makecol(255,255,255),makecol( 38,51,111));
-    //print variables
 
-
+    //white player
     textout_ex(screen,font,"White Player :",650,120,makecol(255,255,255),makecol( 38,51,111));
     textout_ex(screen,font,"Dylan",650,140,makecol(255,255,255),makecol( 38,51,111));
 
@@ -91,7 +90,12 @@ int main(int argc , char *argv[])
 
     initallegro(page,scorep1,scorep2,infos,tableau,white,black);
 
-    while(1){
+    while(!key[KEY_ESC]){
+    // update our bitmap for infos and score
+    //clear_bitmap(scorep1);
+    //clear_bitmap(scorep2);
+    //clear_bitmap(infos);
+
     validMouv=0;
     //updateGrid(0b10010011);
     if(tour==0){
@@ -105,21 +109,34 @@ int main(int argc , char *argv[])
         }
     }
     if(tour==1){
-        if(mouse_b&1){
+            /*if(mouse_b&1){
             validMouv = getMouseUser(p2);
             if(validMouv==1){
             for(i=0;i<100000000;i++){}
             updateBlock(screen,white,black);
             tour=0;
             }
+        }*/
+        validMouv = jouer(p2);
+        if(validMouv==1){
+        for(i=0;i<100000000;i++){}
+            updateBlock(screen,white,black);
+            tour=0;
         }
     }
 
     getScore(p1,p2);
-    textprintf_ex(screen, font, 50, 160, makecol(255, 255, 255),-1, "Points : %d", p1->point);
-    textprintf_ex(screen, font, 650, 160, makecol(255, 255, 255),-1, "Points : %d", p2->point);
-    blit(scorep1,screen,0,0,0,0,SCREEN_W,SCREEN_H);
-    //printf("\n Player 1 : %d \n Player 2 : %d\n",p1->point,p2->point);
+    textprintf_ex(scorep1, font, 0, 0, makecol(255, 255, 255),-1, "Points : %d", p1->point);
+    textprintf_ex(scorep2, font, 0, 0, makecol(255, 255, 255),-1, "Points : %d", p2->point);
+    if(tour==0){
+        textout_ex(infos,font,"Playing : Black ",0,0,makecol(255,255,255),makecol( 38,51,111));
+    }
+    else {
+        textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
+    }
+//    blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+ //   blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
+   // blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
     }
 
     //clear the bitmap page
