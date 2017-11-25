@@ -64,7 +64,13 @@ printf("\n");
 
 }
 
-void updateBlock(){
+void placeBlock(int x,int y,BITMAP *screen,BITMAP *color){
+    x=(x*50)+104;
+    y=(y*50)+204;
+    draw_sprite(screen,color,y,x);
+}
+
+void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black){
 
 char num = '0';
 char car='0';
@@ -85,6 +91,12 @@ int i,j;
             }
             else {
                 printf("%d",matrice[i][j]->state);
+                if(matrice[i][j]->state==1){
+                    placeBlock(i,j,screen,black);
+                }
+                else if(matrice[i][j]->state==2){
+                    placeBlock(i,j,screen,white);
+                }
             }
             printf(" ");
         }

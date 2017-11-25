@@ -3,6 +3,7 @@
 
 void jouer()
 {
+    printf("ia de ouf");
     struct player *player;
     player->state=2;
     int i=0;
@@ -53,31 +54,6 @@ void jouer()
     verticalChange(powerSlot->x,powerSlot->y,2);
     diagonalChange(powerSlot->x,powerSlot->y,2);
 
-
-/*
-switch(dir)
-{
-case "w":
-	if(tab[x+1] != NULL)
-	{
-		tab[x+1]=tab[x];
-		tab[x]=tab[x-1];
-	}
-	else printf("size error");
-break;
-
-case "b":
-	if(tab[x-1] != NULL)
-	{
-		tab[x-1]=tab[x];
-		tab[x]=tab[x+1];
-	}
-	else print("");
-break;
-
-    default: printf("erreur");
-}
-*/
 }
 
 
@@ -111,7 +87,8 @@ int verticalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
-        else{
+        else i--;
+        /*else{
 
             checkSlot=getSlot(i,j);
             printf("checkslot state i--: %d\n",j+1);
@@ -121,7 +98,7 @@ int verticalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
     }
 
     if(burn==0 || checkSlot->state != player->state) mark1=0;
@@ -154,7 +131,8 @@ int verticalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
-        else{
+        else i++;
+        /*else{
 
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d\n",j+1);
@@ -164,7 +142,7 @@ int verticalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
     }
     if(burn==0 || checkSlot->state != player->state) mark2=0;
 
@@ -201,7 +179,8 @@ int horizontalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
-        else{
+        else j--;
+        /*else{
 
             checkSlot=getSlot(i,j);
             printf("checkslot state j--: %d\n",j+1);
@@ -211,7 +190,7 @@ int horizontalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
 
     }
     if(burn==0 || checkSlot->state != player->state) mark1=0;
@@ -234,7 +213,8 @@ int horizontalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
-        else{
+        else j++;
+        /*else{
 
             checkSlot=getSlot(i,j);
             printf("checkslot state j++: %d\n",j+1);
@@ -244,7 +224,7 @@ int horizontalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
 
     }
     if(burn==0 || checkSlot->state != player->state) mark2=0;
@@ -285,6 +265,8 @@ int diagonalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
+        else {j--; i--;}
+        /*
         else{
 
             checkSlot=getSlot(i,j);
@@ -295,7 +277,7 @@ int diagonalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
 
     }
     if(burn==0 || checkSlot->state != player->state) mark1=0;
@@ -320,6 +302,9 @@ int diagonalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
+                else {j++; i++;}
+
+        /*
         else{
 
             checkSlot=getSlot(i,j);
@@ -330,7 +315,7 @@ int diagonalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
 
     }
     if(burn==0 || checkSlot->state != player->state) mark2=0;
@@ -356,6 +341,9 @@ int diagonalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
+        else {j++; i--;}
+
+        /*
         else{
 
             checkSlot=getSlot(i,j);
@@ -366,7 +354,7 @@ int diagonalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
 
     }
     if(burn==0 || checkSlot->state != player->state) mark3=0;
@@ -391,6 +379,9 @@ int diagonalCheck(int x, int y, struct player *player)
             }
             else burn=1;
         }
+        else {j--; i++;}
+
+        /*
         else{
 
             checkSlot=getSlot(i,j);
@@ -401,7 +392,7 @@ int diagonalCheck(int x, int y, struct player *player)
                 //printf("mark: %d\n",mark);
             }
             else burn=1;
-        }
+        }*/
 
     }
     if(burn==0 || checkSlot->state != player->state) mark4=0;

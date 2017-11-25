@@ -31,5 +31,4 @@
             allegro_exit();
             exit(EXIT_FAILURE);
         }
-        // Affiche pointeur de souris en mode allegro
     }
