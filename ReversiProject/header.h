@@ -2,6 +2,7 @@
 #define HEADER_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <allegro.h>
 #define SIZE 8
 
@@ -39,11 +40,15 @@ int placer(int x, int y, struct player *player);
 void horizontalChange(int x, int y, struct player *player);
 void verticalChange(int x, int y, struct player *player);
 void diagonalChange(int x, int y, struct player *player);
-void horizontalCheck(int x, int y, struct player *player);
-void verticalCheck(int x, int y, struct player *player);
-void diagonalCheck(int x, int y, struct player *player);
 int isAble(int x, int y, struct player *player);
 struct slot *getSlot(int x, int y);
+
+//ia.c
+int horizontalCheck(int x, int y, struct player *player);
+int verticalCheck(int x, int y, struct player *player);
+int diagonalCheck(int x, int y, struct player *player);
+int iaIsAble(int x, int y);
+
 
 
 #endif // HEADER_H_INCLUDED

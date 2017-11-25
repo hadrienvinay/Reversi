@@ -1,16 +1,12 @@
 //#include <ncurses.h>
 #include "header.h"
 
-void initallegro(){
+void initallegro(BITMAP *page, BITMAP *tableau,BITMAP *white,BITMAP *black){
     //allegro init
     lancerToutAllegro(800,600);
     //init score to 2 for each player
     int score=2;
-    //create bitmaps
-    BITMAP *page;
-    BITMAP *tableau;
-    BITMAP *black;
-    BITMAP *white;
+
     //load images
     page=create_bitmap(SCREEN_W,SCREEN_H);
     tableau=chargerImage("images/tableau.bmp");
@@ -29,6 +25,7 @@ void initallegro(){
              makecol( 38,51,111) );//Put color behind text
 
     textout_ex(screen,font,"Kevin",50,140,makecol(255,255,255),makecol( 38,51,111));
+    //print variables
     textprintf_ex(screen, font, 50, 160, makecol(255, 255, 255),-1, "Points : %d", score);
 
 
@@ -46,9 +43,23 @@ void initallegro(){
     show_mouse(screen);
 }
 
+void getMouseUser(){
+    int x,y;
+    //get the x,y coord on the grid when the user click
+    x=(mouse_x-200)/50;
+    y=(mouse_y-100)/50;
+    //trunc(x);
+    //trunc(y);
+    printf("%d , %d\n",x,y);
+}
+
 int main(int argc , char *argv[])
 {
-
+    //create bitmaps
+    BITMAP *page;
+    BITMAP *tableau;
+    BITMAP *black;
+    BITMAP *white;
 
     int lin,col; // get the input of the user for test
     int tour=0; // loop change for player change
@@ -65,28 +76,22 @@ int main(int argc , char *argv[])
     initslot();
     creationGrille();
 
-
-    initallegro();
+    initallegro(page,tableau,white,black);
 
     while(1){
     //updateGrid(0b10010011);
-    printf("ligne :");
-    scanf("%d",&lin);
-    printf("colonne :");
-    scanf("%d",&col);
-    printf("%d,%d\n",lin,col);
-    if(tour==0%2){
-            placer(lin,col,p1);
+    if(mouse_b&1){
+        getMouseUser();
+        for(i=0;i<10000000;i++){}
     }
-    else {
-            placer(lin,col,p2);
+    getScore(p1,p2);
+    //printf("\n Player 1 : %d \n Player 2 : %d\n",p1->point,p2->point);
+    tour ++;
+    //updateBlock();
     }
 
-    getScore(p1,p2);
-    printf("\n Player 1 : %d \n Player 2 : %d\n",p1->point,p2->point);
-    tour ++;
-    updateBlock();
-    }
+    //clear the bitmap page
+    clear_bitmap(page);
     return 0;
 }
 END_OF_MAIN();
