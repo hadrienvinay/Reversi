@@ -35,6 +35,7 @@ void creationGrille();
 void udpateGrille();
 void getScore(struct player *player1,struct player *player2);
 void placeBlock(int x,int y,BITMAP *screen,BITMAP *color);
+void redBox(BITMAP *screen,BITMAP *red,struct player *player);
 
 //placement.c functions
 int placer(int x, int y, struct player *player);

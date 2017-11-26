@@ -17,6 +17,9 @@ int jouer(struct player *player)
 
     struct slot *powerSlot;
     struct slot *slot;
+    slot=(struct slot *)malloc(sizeof(struct slot));
+    powerSlot=(struct slot *)malloc(sizeof(struct slot));
+
     //struct slot markSlot;
 
 
@@ -51,6 +54,8 @@ int jouer(struct player *player)
     }
 
    var = placer(powerSlot->x,powerSlot->y,player);
+   //free(powerSlot);
+   //free(slot);
    return var;
 }
 
@@ -69,6 +74,7 @@ int verticalCheck(int x, int y, struct player *player)
     int mark2 = 0;
     int totmark=0;
 
+    checkSlot=(struct slot *)malloc(sizeof(struct slot));
     printf("vertical check\n");
 
     while(i >= 0 && burn == 0){     //We check from x to x--
@@ -145,6 +151,7 @@ int verticalCheck(int x, int y, struct player *player)
     if(burn==0 || checkSlot->state != player->state) mark2=0;
 
     totmark=mark1+mark2;
+    //free(checkSlot);
     return totmark;
 }
 
@@ -161,6 +168,7 @@ int horizontalCheck(int x, int y, struct player *player)
     int totmark = 0;
 
     printf("Horizontal check\n");
+    checkSlot=(struct slot *)malloc(sizeof(struct slot));
 
 
     while(j >= 0 && burn == 0){     //We check from y to y--
@@ -228,6 +236,7 @@ int horizontalCheck(int x, int y, struct player *player)
     if(burn==0 || checkSlot->state != player->state) mark2=0;
 
     totmark=mark1+mark2;
+    //free(checkSlot);
     return totmark;
 }
 
@@ -247,6 +256,7 @@ int diagonalCheck(int x, int y, struct player *player)
     int canPlay=1;
 
     printf("Diagonal check\n");
+    checkSlot=(struct slot *)malloc(sizeof(struct slot));
 
     while(j >= 0 && i >= 0 && burn == 0){     //we check from x,y to x--,y--
 
@@ -396,6 +406,7 @@ int diagonalCheck(int x, int y, struct player *player)
     if(burn==0 || checkSlot->state != player->state) mark4=0;
 
     totmark=mark1+mark2+mark3+mark4;
+    //free(checkSlot);
     return totmark;
 }
 
@@ -405,7 +416,7 @@ int iaIsAble(int x, int y)
 
     int isAble=0;
     struct slot *slot;
-
+    slot=(struct slot *)malloc(sizeof(struct slot));
     slot=getSlot(x+1,y);
     if(slot->state != 0 && slot->state != 2){
 
@@ -453,7 +464,7 @@ int iaIsAble(int x, int y)
 
         isAble=1;
     }
-
+    //free(slot);
     return isAble;
 }
 

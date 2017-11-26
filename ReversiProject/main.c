@@ -35,12 +35,14 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BIT
 }
 
 int getMouseUser(struct player *player){
-    int x,y;
+    double x,y;
     int good=0;
     //get the x,y coord on the grid when the user click
     x=(mouse_x-200)/50;
     y=(mouse_y-100)/50;
     printf("%d , %d\n",x,y);
+    trunc(x);
+    trunc(y);
     //return if the mouv is valid or not (0 for invalid and 1 for valid)
     good = placer(y,x,player);
     return good;
@@ -60,6 +62,7 @@ int main(int argc , char *argv[])
     BITMAP *tableau=NULL;
     BITMAP *black=NULL;
     BITMAP *white=NULL;
+    BITMAP *red=NULL;
 
 
      //load images
@@ -70,6 +73,7 @@ int main(int argc , char *argv[])
     tableau=chargerImage("images/tableau.bmp");
     white=chargerImage("images/jeton_blanc.bmp");
     black=chargerImage("images/jeton_noir.bmp");
+    red=chargerImage("images/jeton_rouge.bmp");
 
 
     int lin,col; // get the input of the user for test
@@ -96,6 +100,7 @@ int main(int argc , char *argv[])
     clear_bitmap(scorep2);
     clear_bitmap(infos);
 
+
     validMouv=0;
     //updateGrid(0b10010011);
     if(tour==0){
@@ -103,7 +108,9 @@ int main(int argc , char *argv[])
             validMouv = getMouseUser(p1);
             if(validMouv==1){
             for(i=0;i<100000000;i++){}
+
             updateBlock(screen,white,black);
+
             tour++;
             }
         }
@@ -113,17 +120,22 @@ int main(int argc , char *argv[])
             validMouv = getMouseUser(p2);
             if(validMouv==1){
             for(i=0;i<100000000;i++){}
+                //redBox(screen,red,p2);
             updateBlock(screen,white,black);
             tour=0;
             }
         }*/
         validMouv = jouer(p2);
         if(validMouv==1){
-        for(i=0;i<100000000;i++){}
+        for(i=0;i<10000000;i++){}
+               // redBox(screen,red,p2);
+
             updateBlock(screen,white,black);
             tour=0;
+
         }
     }
+
 
     getScore(p1,p2);
     textprintf_ex(scorep1, font, 0, 0, makecol(255, 255, 255),-1, "Points : %d", p1->point);
@@ -134,9 +146,9 @@ int main(int argc , char *argv[])
     else {
         textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
     }
-    blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
-    blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
-    blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
+    //blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+   //blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
+   //blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
     }
 
     //clear the bitmap page

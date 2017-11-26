@@ -5,9 +5,10 @@ int placer(int x, int y, struct player *player)
 {
     //printf qui ne fait pas bugger le programme wtffff NE PAS TOUCHER
     printf("entre dans placer");
-    struct slot *slot = getSlot(x,y);
+    struct slot *slot ;
     //struct slot markSlot;
-
+    slot=(struct slot *)malloc(sizeof(struct slot));
+    slot = getSlot(x,y);
 
     /*IF THE SLOT IS EMPTY WE CAN PLAY*/
     if(slot->state == 0){
@@ -21,6 +22,7 @@ int placer(int x, int y, struct player *player)
                 printf("You can't play on that slot... sorry !\n");
                 printf("Content of the slot : %d\n", slot->state);
                 printf("PLAYER %d\n", player->state);
+                //free(slot);
                 return 0;
             }
             else return 1;
@@ -29,6 +31,7 @@ int placer(int x, int y, struct player *player)
             printf("You can't play on that slot... sorry !\n");
             printf("Content of the slot : %d\n", slot->state);
             printf("PLAYER %d\n", player->state);
+            //free(slot);
             return 0;
         }
 
@@ -37,6 +40,7 @@ int placer(int x, int y, struct player *player)
       /*IF THE SLOT IS NOT EMPTY WE ASK AGAIN*/
     else {
             printf("Your slot is not empty... sorry !\n");
+            //free(slot);
             return 0;
         }
 
@@ -52,6 +56,7 @@ void verticalChange(int x, int y, struct player *player)
     int burn=0; //if slot changes color
     int mark = 0;
 
+    checkSlot=(struct slot *)malloc(sizeof(struct slot));
     printf("vertical check\n");
 
     while(i >= 0 && burn == 0){     //We check from x to x--
@@ -100,6 +105,7 @@ void verticalChange(int x, int y, struct player *player)
         while(mark!=0)
         {
             printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+            printf("\n \n CHANGE ETAT %d\n\n",player->state);
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             i--;
@@ -149,12 +155,15 @@ void verticalChange(int x, int y, struct player *player)
         while(mark!=0)
         {
             printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+                        printf("\n \n CHANGE ETAT %d\n\n",player->state);
+
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             i++;
             mark--;
         }
     }
+    //free(checkSlot);
 }
 
 /*We check verticaly the slot we can eat*/
@@ -167,6 +176,7 @@ void horizontalChange(int x, int y, struct player *player)
     int burn=0; //if slot changes color
     int mark = 0;
 
+    checkSlot=(struct slot *)malloc(sizeof(struct slot));
     printf("Horizontal check\n");
 
 
@@ -262,6 +272,7 @@ void horizontalChange(int x, int y, struct player *player)
             mark--;
         }
     }
+    //free(checkSlot);
 }
 
 /*We check diagonaly the slot we can eat*/
@@ -275,6 +286,7 @@ void diagonalChange(int x, int y, struct player *player)
     int mark = 0;
     int canPlay=1;
 
+    checkSlot=(struct slot *)malloc(sizeof(struct slot));
     printf("Diagonal check\n");
 
     while(j >= 0 && i >= 0 && burn == 0){     //we check from x,y to x--,y--
@@ -478,6 +490,7 @@ void diagonalChange(int x, int y, struct player *player)
             mark--;
         }
     }
+    //free(checkSlot);
 }
 
 /*CHECK IF THERE IS AT LEAST ONE ENNEMY SLOT AUROUND*/
@@ -486,7 +499,7 @@ int isAble(int x, int y, struct player *player)
 
     int isAble=0;
     struct slot *slot;
-
+    slot=(struct slot *)malloc(sizeof(struct slot));
     slot=getSlot(x+1,y);
     if(slot->state != 0 && slot->state != player->state){
 
@@ -534,7 +547,7 @@ int isAble(int x, int y, struct player *player)
 
         isAble=1;
     }
-
+    //free(slot);
     return isAble;
 }
 
@@ -542,6 +555,7 @@ struct slot *getSlot(int x, int y)
 {
     int i,j;
     struct slot *slot;
+    slot=(struct slot *)malloc(sizeof(struct slot));
     for(i=0; i < SIZE; i++)
     {
         for(j=0; j < SIZE; j++)
