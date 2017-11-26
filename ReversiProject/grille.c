@@ -134,6 +134,7 @@ void getScore(struct player *player1,struct player *player2)
     int i,j;
     player1->point=0;
     player2->point=0;
+    int compteur=0;
 
     for(i=0; i<SIZE; i++)
     {
@@ -148,7 +149,15 @@ void getScore(struct player *player1,struct player *player2)
                 player2->point++;
 
             }
+            if(matrice[i][j]->state==0)
+            {
+                compteur++;
+            }
         }
+    }
+    if(compteur==0){
+        player1->playing=1;
+        player2->playing=1;
     }
 
 }

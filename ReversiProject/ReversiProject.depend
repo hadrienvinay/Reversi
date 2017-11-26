@@ -25,16 +25,17 @@
 	<sys/socket.h>
 	<arpa/inet.h>
 
-1511638528 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
+1511718867 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	<allegro.h>
+	<winalleg.h>
 
-1511714412 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\grille.c
+1511719215 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\grille.c
 	"header.h"
 
-1511715893 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
+1511718903 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
 	"header.h"
 
 1511715669 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\placement.c

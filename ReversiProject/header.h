@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <allegro.h>
+#include <winalleg.h>
 #define SIZE 8
 
 //struct of plot

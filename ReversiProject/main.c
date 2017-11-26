@@ -88,6 +88,8 @@ int main(int argc , char *argv[])
     p2->state=2;
     p2->point=0;
     p2->point=0;
+    p2->point=0;
+    p2->point=0;
 
     initslot();
     creationGrille();
@@ -96,9 +98,9 @@ int main(int argc , char *argv[])
 
     while(!key[KEY_ESC]){
     // update our bitmap for infos and score
-    clear_bitmap(scorep1);
-    clear_bitmap(scorep2);
-    clear_bitmap(infos);
+    //clear_bitmap(scorep1);
+    //clear_bitmap(scorep2);
+    //clear_bitmap(infos);
 
 
     validMouv=0;
@@ -108,7 +110,6 @@ int main(int argc , char *argv[])
             validMouv = getMouseUser(p1);
             if(validMouv==1){
             for(i=0;i<100000000;i++){}
-
             updateBlock(screen,white,black);
 
             tour++;
@@ -116,7 +117,7 @@ int main(int argc , char *argv[])
         }
     }
     if(tour==1){
-            /*if(mouse_b&1){
+          /*  if(mouse_b&1){
             validMouv = getMouseUser(p2);
             if(validMouv==1){
             for(i=0;i<100000000;i++){}
@@ -129,7 +130,7 @@ int main(int argc , char *argv[])
         if(validMouv==1){
         for(i=0;i<10000000;i++){}
                // redBox(screen,red,p2);
-
+            Sleep(1500);
             updateBlock(screen,white,black);
             tour=0;
 
@@ -146,6 +147,7 @@ int main(int argc , char *argv[])
     else {
         textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
     }
+    if(p1->playing==1){return 0;}
     //blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
    //blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
    //blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
