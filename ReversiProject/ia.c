@@ -32,7 +32,7 @@ int niveau_medium(struct player *player)
                         y=j;
                         slot=getSlot(x,y);
                         if(slot->state == 0){
-                            if(iaIsAble(x,y)){
+                            if(isAble(x,y,player)){
                                 cpt1=verticalCheck(x,y,player);
                                 cpt2=horizontalCheck(x,y,player);
                                 cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
@@ -59,7 +59,7 @@ int niveau_medium(struct player *player)
                         y=j;
                         slot=getSlot(x,y);
                         if(slot->state == 0){
-                            if(iaIsAble(x,y)){
+                            if(isAble(x,y,player)){
                                 cpt1=verticalCheck(x,y,player);
                                 cpt2=horizontalCheck(x,y,player);
                                 cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
@@ -86,7 +86,7 @@ int niveau_medium(struct player *player)
                         y=j;
                         slot=getSlot(x,y);
                         if(slot->state == 0){
-                            if(iaIsAble(x,y)){
+                            if(isAble(x,y,player)){
                                 cpt1=verticalCheck(x,y,player);
                                 cpt2=horizontalCheck(x,y,player);
                                 cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
@@ -113,7 +113,7 @@ int niveau_medium(struct player *player)
                         y=j;
                         slot=getSlot(x,y);
                         if(slot->state == 0){
-                            if(iaIsAble(x,y)){
+                            if(isAble(x,y,player)){
                                 cpt1=verticalCheck(x,y,player);
                                 cpt2=horizontalCheck(x,y,player);
                                 cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
@@ -167,7 +167,7 @@ int niveau_hard(struct player *player)
             handPower=0;
             slot=getSlot(x,y);
             if(slot->state == 0){
-                if(iaIsAble(x,y)){
+                if(isAble(x,y,player)){
                     cpt1=verticalCheck(x,y,player);
                     cpt2=horizontalCheck(x,y,player);
                     cpt3=diagonalCheck(x,y,player);

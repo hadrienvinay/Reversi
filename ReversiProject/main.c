@@ -113,7 +113,7 @@ int main(int argc , char *argv[])
     }
 
     if(tour==0){
-        if(mouse_b&1){
+        /*if(mouse_b&1){
             validMouv = getMouseUser(p1);
             if(validMouv==1){
             clear(screen);
@@ -121,7 +121,17 @@ int main(int argc , char *argv[])
             updateBlock(screen,white,black);
             tour++;
             }
-        }
+        }*/
+        validMouv = niveau_medium(p1);
+        if(validMouv==1){
+        //for(i=0;i<10000000;i++){}
+            //Sleep(500);
+            //clear(screen);
+            //initallegro(page,scorep1,scorep2,infos,tableau,white,black);
+            updateBlock(screen,white,black);
+            //redBox(screen,red,p1);
+            tour=1;
+    }
     }
     if(tour==1){
           /*  if(mouse_b&1){
@@ -135,12 +145,12 @@ int main(int argc , char *argv[])
         }*/
         validMouv = niveau_medium(p2);
         if(validMouv==1){
-        for(i=0;i<10000000;i++){}
-            Sleep(2000);
-            clear(screen);
-            initallegro(page,scorep1,scorep2,infos,tableau,white,black);
+        //for(i=0;i<10000000;i++){}
+            //Sleep(500);
+            //clear(screen);
+            //initallegro(page,scorep1,scorep2,infos,tableau,white,black);
             updateBlock(screen,white,black);
-            redBox(screen,red,p1);
+            //redBox(screen,red,p1);
             tour=0;
 
 
@@ -163,7 +173,11 @@ int main(int argc , char *argv[])
     else {
         textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
     }
-    if(p1->playing==1){return 0;}
+    if(p1->playing==1){
+
+            Sleep(4000);
+            printf(" \n\nPlayer 1 : %d ---- Player 2 : %d",p1->point,p2->point);
+    return 0;}
     //blit(scorep1,screen,0,0,50,160,SCREEN_W,SCREEN_H);
    //blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
    //blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
