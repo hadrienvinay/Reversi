@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include <allegro.h>
 #include <winalleg.h>
 #define SIZE 8
@@ -47,7 +48,8 @@ int isAble(int x, int y, struct player *player);
 struct slot *getSlot(int x, int y);
 
 //ia.c
-int jouer(struct player *player);
+int niveau_hard(struct player *player);
+int niveau_medium(struct player *player);
 int horizontalCheck(int x, int y, struct player *player);
 int verticalCheck(int x, int y, struct player *player);
 int diagonalCheck(int x, int y, struct player *player);

@@ -51,7 +51,7 @@ int getMouseUser(struct player *player){
 int main(int argc , char *argv[])
 {
     lancerToutAllegro(800,600);
-
+    srand(time(NULL));
     //create bitmaps
     //our all page
     BITMAP *page=NULL;
@@ -105,6 +105,15 @@ int main(int argc , char *argv[])
 
     validMouv=0;
     //updateGrid(0b10010011);
+    if(key[KEY_P]){
+
+        if(tour==0) tour=1;
+        else if(tour==1) tour=0;
+        Sleep(1000);
+    }
+
+
+
     if(tour==0){
         if(mouse_b&1){
             validMouv = getMouseUser(p1);
@@ -126,7 +135,7 @@ int main(int argc , char *argv[])
             tour=0;
             }
         }*/
-        validMouv = jouer(p2);
+        validMouv = niveau_medium(p2);
         if(validMouv==1){
         for(i=0;i<10000000;i++){}
                // redBox(screen,red,p2);
@@ -134,7 +143,13 @@ int main(int argc , char *argv[])
             updateBlock(screen,white,black);
             tour=0;
 
+        }else {
+            allegro_message("ia ne peut pas jouer... a ton tour!");
+            tour=0;
+            Sleep("1500");
         }
+
+
     }
 
 

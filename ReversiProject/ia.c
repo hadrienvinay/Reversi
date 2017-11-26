@@ -1,9 +1,143 @@
 
 #include "header.h"
 
-int jouer(struct player *player)
+int niveau_medium(struct player *player)
 {
-    printf("ia de ouf");
+    int i=0;
+    int j=0;
+    int cpt1=0;
+    int cpt2=0;
+    int cpt3=0;
+    int var;
+    int canPlay=0;
+    int boucle;
+    int x,y;
+
+    struct slot *slot;
+    slot=(struct slot *)malloc(sizeof(struct slot));
+
+    //struct slot markSlot;
+
+    boucle=rand()%4;
+    /*IF THE SLOT IS EMPTY WE CAN PLAY*/
+    switch(boucle){
+        case 0:
+            for(i=0;i<SIZE;i++)
+            {
+                for(j=0;j<SIZE;j++)
+                {
+                    if(canPlay==0)
+                    {
+                        x=i;
+                        y=j;
+                        slot=getSlot(x,y);
+                        if(slot->state == 0){
+                            if(iaIsAble(x,y)){
+                                cpt1=verticalCheck(x,y,player);
+                                cpt2=horizontalCheck(x,y,player);
+                                cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
+                                canPlay=cpt1+cpt2+cpt3;
+                            }
+                            else {
+                                printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                                printf("Content of the slot : %d\n", slot->state);
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+
+            case 1:
+            for(i=SIZE-1;i>=0;i--)
+            {
+                for(j=SIZE-1;j>=0;j--)
+                {
+                    if(canPlay==0)
+                    {
+                        x=i;
+                        y=j;
+                        slot=getSlot(x,y);
+                        if(slot->state == 0){
+                            if(iaIsAble(x,y)){
+                                cpt1=verticalCheck(x,y,player);
+                                cpt2=horizontalCheck(x,y,player);
+                                cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
+                                canPlay=cpt1+cpt2+cpt3;
+                            }
+                            else {
+                                printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                                printf("Content of the slot : %d\n", slot->state);
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+
+            case 2:
+            for(i=0;i<SIZE;i++)
+            {
+                for(j=SIZE-1;j>=0;j--)
+                {
+                    if(canPlay==0)
+                    {
+                        x=i;
+                        y=j;
+                        slot=getSlot(x,y);
+                        if(slot->state == 0){
+                            if(iaIsAble(x,y)){
+                                cpt1=verticalCheck(x,y,player);
+                                cpt2=horizontalCheck(x,y,player);
+                                cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
+                                canPlay=cpt1+cpt2+cpt3;
+                            }
+                            else {
+                                printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                                printf("Content of the slot : %d\n", slot->state);
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+
+            case 3:
+            for(i=SIZE-1;i>=0;i--)
+            {
+                for(j=0;j<SIZE;j++)
+                {
+                    if(canPlay==0)
+                    {
+                        x=i;
+                        y=j;
+                        slot=getSlot(x,y);
+                        if(slot->state == 0){
+                            if(iaIsAble(x,y)){
+                                cpt1=verticalCheck(x,y,player);
+                                cpt2=horizontalCheck(x,y,player);
+                                cpt3=diagonalCheck(x,y,player);     //we count the number of ennemi slot that we can get
+                                canPlay=cpt1+cpt2+cpt3;
+                            }
+                            else {
+                                printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                                printf("Content of the slot : %d\n", slot->state);
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+    }
+
+   var = placer(slot->x,slot->y,player);
+   //free(powerSlot);
+   //free(slot);
+   return var;
+}
+
+int niveau_hard(struct player *player)
+{
 
     int i=0;
     int j=0;

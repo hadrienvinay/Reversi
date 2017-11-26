@@ -47,3 +47,30 @@
 1511715860 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\ia.c
 	"header.h"
 
+1511626663 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\allegro.c
+	"header.h"
+
+1511722713 c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\header.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<allegro.h>
+	<winalleg.h>
+
+1511720172 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\grille.c
+	"header.h"
+
+1511722713 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\ia.c
+	"header.h"
+
+1511722474 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\main.c
+	"header.h"
+
+1511720172 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\placement.c
+	"header.h"
+
+1511618056 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\server.c
+	<sys/socket.h>
+	<arpa/inet.h>
+
