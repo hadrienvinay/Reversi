@@ -165,14 +165,26 @@ void getScore(struct player *player1,struct player *player2)
 void redBox(BITMAP *screen,BITMAP *red,struct player *player)
 {
     int i,j;
-    int x,y;
+    int cpt1;
+    int cpt2;
+    int cpt3;
+    int handPower;
+    struct slot *slot=(struct slot *)malloc(sizeof(struct slot));
+
+
     for(i=0; i<SIZE; i++)
     {
         for(j=0; j<SIZE; j++)
         {
-            if(isAble(i,j,player))
+            slot=getSlot(i,j);
+            if(isAble(i,j,player) && slot->state==0)
             {
-                placeBlock(i,j,screen,red);
+                cpt1=verticalCheck(i,j,player);
+                cpt2=horizontalCheck(i,j,player);
+                cpt3=diagonalCheck(i,j,player);
+                handPower=cpt1+cpt2+cpt3;
+                if(handPower!=0) placeBlock(i,j,screen,red);
+
             }
 
         }

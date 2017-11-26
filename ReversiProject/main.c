@@ -96,12 +96,12 @@ int main(int argc , char *argv[])
 
     initallegro(page,scorep1,scorep2,infos,tableau,white,black);
 
+    redBox(screen,red,p1);
     while(!key[KEY_ESC]){
     // update our bitmap for infos and score
     //clear_bitmap(scorep1);
     //clear_bitmap(scorep2);
     //clear_bitmap(infos);
-
 
     validMouv=0;
     //updateGrid(0b10010011);
@@ -112,15 +112,13 @@ int main(int argc , char *argv[])
         Sleep(1000);
     }
 
-
-
     if(tour==0){
         if(mouse_b&1){
             validMouv = getMouseUser(p1);
             if(validMouv==1){
-            for(i=0;i<100000000;i++){}
+            clear(screen);
+            initallegro(page,scorep1,scorep2,infos,tableau,white,black);
             updateBlock(screen,white,black);
-
             tour++;
             }
         }
@@ -138,10 +136,13 @@ int main(int argc , char *argv[])
         validMouv = niveau_medium(p2);
         if(validMouv==1){
         for(i=0;i<10000000;i++){}
-               // redBox(screen,red,p2);
-            Sleep(1500);
+            Sleep(2000);
+            clear(screen);
+            initallegro(page,scorep1,scorep2,infos,tableau,white,black);
             updateBlock(screen,white,black);
+            redBox(screen,red,p1);
             tour=0;
+
 
         }else {
             allegro_message("ia ne peut pas jouer... a ton tour!");
