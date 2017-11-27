@@ -124,10 +124,10 @@ int main(int argc , char *argv[])
             initallegro(page,scorep1,scorep2,infos,tableau,white,black);
             updateBlock(screen,white,black,red,none);
             tour++;
-            }else if(redBox(screen,red,p1)==0) {
+            }/*else if(redBox(screen,red,p1)==0) {
                     Sleep(1000);
                     tour=1;
-            }
+            }*/
         }/*
         validMouv = niveau_medium(p1);
         if(validMouv==1){
