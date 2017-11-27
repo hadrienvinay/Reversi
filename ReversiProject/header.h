@@ -37,7 +37,7 @@ void creationGrille();
 void udpateGrille();
 void getScore(struct player *player1,struct player *player2);
 void placeBlock(int x,int y,BITMAP *screen,BITMAP *color);
-void redBox(BITMAP *screen,BITMAP *red,struct player *player);
+int redBox(BITMAP *screen,BITMAP *red,struct player *player);
 
 //placement.c functions
 int placer(int x, int y, struct player *player, int canPlay);
@@ -48,6 +48,7 @@ int isAble(int x, int y, struct player *player);
 struct slot *getSlot(int x, int y);
 
 //ia.c
+int niveau_boss(struct player *player);
 int niveau_hard(struct player *player);
 int niveau_medium(struct player *player);
 int horizontalCheck(int x, int y, struct player *player);

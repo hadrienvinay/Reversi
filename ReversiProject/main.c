@@ -116,19 +116,23 @@ int main(int argc , char *argv[])
     }
 
     if(tour==0){
-        if(mouse_b&1){
+
+       if(mouse_b&1){
             validMouv = getMouseUser(p1);
             if(validMouv==1){
             clear(screen);
             initallegro(page,scorep1,scorep2,infos,tableau,white,black);
             updateBlock(screen,white,black,red,none);
             tour++;
+            }else if(redBox(screen,red,p1)==0) {
+                    Sleep(1000);
+                    tour=1;
             }
         }/*
         validMouv = niveau_medium(p1);
         if(validMouv==1){
         //for(i=0;i<10000000;i++){}
-            //Sleep(500);
+            Sleep(50);
             clear(screen);
             initallegro(page,scorep1,scorep2,infos,tableau,white,black);
             updateBlock(screen,white,black,red,none);
@@ -136,7 +140,7 @@ int main(int argc , char *argv[])
             tour=1;
         }
         else {
-            allegro_message("ia ne peut pas jouer... a ton tour!");
+            //allegro_message("ia ne peut pas jouer... a ton tour!");  //EN MODE MANUEL CONTRE IA
             tour=1;
             Sleep(1500);
         }*/
@@ -152,7 +156,7 @@ int main(int argc , char *argv[])
             tour=0;
             }
         }*/
-        validMouv = niveau_hard(p2);
+        validMouv = niveau_boss(p2);
         if(validMouv==1){
         //for(i=0;i<10000000;i++){}
             Sleep(1000);
@@ -164,7 +168,7 @@ int main(int argc , char *argv[])
 
 
         }else {
-            allegro_message("ia ne peut pas jouer... a ton tour!");
+            //allegro_message("ia ne peut pas jouer... a ton tour!");
             tour=0;
             Sleep(1500);
         }

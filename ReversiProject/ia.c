@@ -1,6 +1,8 @@
 
 #include "header.h"
 
+
+
 int niveau_medium(struct player *player)
 {
     int i=0;
@@ -194,6 +196,108 @@ int niveau_hard(struct player *player)
    //free(slot);
    return var;
 }
+
+
+
+int niveau_boss(struct player *player)
+{
+
+    int i=0;
+    int j=0;
+    int var;
+    int x,y;
+    int cpt1=0;
+    int cpt2=0;
+    int cpt3=0;
+    int handPower=0;
+    int angleSlot=0;
+    int boardSlot=0;
+    int maxHandPower=0;
+    int canPlay;
+
+    struct slot *powerSlot;
+    struct slot *slot;
+    slot=(struct slot *)malloc(sizeof(struct slot));
+    powerSlot=(struct slot *)malloc(sizeof(struct slot));
+    angleSlot=0;
+    boardSlot=0;
+    //struct slot markSlot;
+
+
+    /*IF THE SLOT IS EMPTY WE CAN PLAY*/
+    for(i=0;i<SIZE;i++)
+    {
+        for(j=0;j<SIZE;j++)
+        {
+            x=i;
+            y=j;
+            handPower=0;
+            slot=getSlot(x,y);
+            if(slot->state == 0){
+                if(isAble(x,y,player)){
+                    cpt1=verticalCheck(x,y,player);
+                    cpt2=horizontalCheck(x,y,player);
+                    cpt3=diagonalCheck(x,y,player);
+                    handPower=cpt1+cpt2+cpt3;       //we count the number of ennemi slot that we can get
+                    if (handPower>boardSlot  && i==0) {
+                            if(handPower>angleSlot && j==0){
+                            angleSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }else if(angleSlot == 0){
+                            boardSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }
+                    }
+                    if (handPower>boardSlot && i==SIZE-1) {
+                            if(handPower>angleSlot && j==0){
+                            angleSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }else if(angleSlot == 0){
+                            boardSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }
+                    }
+                    if (handPower>boardSlot && i==0) {
+                            if(handPower>angleSlot && j==SIZE-1){
+                            angleSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }else if(angleSlot == 0){
+                            boardSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }
+                    }
+                    if (handPower>boardSlot && j==SIZE-1) {
+                            if(handPower>angleSlot && i==SIZE-1){
+                            angleSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }else if(angleSlot == 0){
+                            boardSlot=handPower;
+                            powerSlot=getSlot(i,j);
+                            }
+                    }
+                }
+                else {
+                    printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                    printf("Content of the slot : %d\n", slot->state);
+                }
+            }
+            if(handPower>maxHandPower && angleSlot==0 && boardSlot==0){         //it compare that to the best hand we can make
+
+                maxHandPower=handPower;
+                powerSlot=getSlot(x,y);
+            }
+
+        }
+    }
+    printf("MAXHANDPOWER= %d",maxHandPower);
+    if (maxHandPower==0) canPlay=1;
+    else canPlay=0;
+   var = placer(powerSlot->x,powerSlot->y,player, canPlay);
+   //free(powerSlot);
+   //free(slot);
+   return var;
+}
+
 
 
 

@@ -170,7 +170,7 @@ void getScore(struct player *player1,struct player *player2)
 
 }
 
-void redBox(BITMAP *screen,BITMAP *red,struct player *player)
+int redBox(BITMAP *screen,BITMAP *red,struct player *player)
 {
     int i,j;
     int cpt1;
@@ -209,6 +209,7 @@ void redBox(BITMAP *screen,BITMAP *red,struct player *player)
         }
     }
     //if (handPower==0) allegro_message("You can not play... hit P to pass"); //POUR LE MODE MANUEL
+    return handPower;
 }
 
 
