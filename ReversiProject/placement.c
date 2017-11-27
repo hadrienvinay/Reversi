@@ -1,7 +1,7 @@
 #include "header.h"
 
 
-int placer(int x, int y, struct player *player)
+int placer(int x, int y, struct player *player, int canPlay)
 {
     //printf qui ne fait pas bugger le programme wtffff NE PAS TOUCHER
     printf("entre dans placer");
@@ -35,7 +35,7 @@ int placer(int x, int y, struct player *player)
             return 0;
         }
 
-
+    if(canPlay==1) return 1;
     }
       /*IF THE SLOT IS NOT EMPTY WE ASK AGAIN*/
     else {
@@ -66,7 +66,7 @@ void verticalChange(int x, int y, struct player *player)
             i--;
             checkSlot=getSlot(i,j);
             printf("checkslot state i--: %d\n",i+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -125,7 +125,7 @@ void verticalChange(int x, int y, struct player *player)
             i++;
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d\n",i+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -187,7 +187,7 @@ void horizontalChange(int x, int y, struct player *player)
             j--;
             checkSlot=getSlot(i,j);
             printf("checkslot state j--: %d\n",j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -236,7 +236,7 @@ void horizontalChange(int x, int y, struct player *player)
             j++;
             checkSlot=getSlot(i,j);
             printf("checkslot state j++: %d\n",j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -297,7 +297,7 @@ void diagonalChange(int x, int y, struct player *player)
             i--;
             checkSlot=getSlot(i,j);
             printf("FIRST checkslot state i--: %d et j--: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -348,7 +348,7 @@ void diagonalChange(int x, int y, struct player *player)
             i++;
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -401,7 +401,7 @@ void diagonalChange(int x, int y, struct player *player)
             i--;
             checkSlot=getSlot(i,j);
             printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -453,7 +453,7 @@ void diagonalChange(int x, int y, struct player *player)
             i++;
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d et j--: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 printf("mark: %d\n",mark);
@@ -501,49 +501,49 @@ int isAble(int x, int y, struct player *player)
     struct slot *slot;
     slot=(struct slot *)malloc(sizeof(struct slot));
     slot=getSlot(x+1,y);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x-1,y);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x,y+1);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x,y-1);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x+1,y+1);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x-1,y-1);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x+1,y-1);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }
 
     slot=getSlot(x-1,y+1);
-    if(slot->state != 0 && slot->state != player->state){
+    if(slot->state != 0 && slot->state != 3 && slot->state != player->state){
 
         isAble=1;
     }

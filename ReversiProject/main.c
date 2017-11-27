@@ -27,10 +27,10 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BIT
     //init tableau and 4 start boxes
     // the first case is located in 200,100 ( X,Y) and each case are separated by 50px;
     blit(tableau,screen,0,0,192,92,SCREEN_W,SCREEN_H);
-    blit(black,screen,0,0,404,254,SCREEN_W,SCREEN_H);
-    blit(black,screen,0,0,354,304,SCREEN_W,SCREEN_H);
-    blit(white,screen,0,0,404,304,SCREEN_W,SCREEN_H);
-    blit(white,screen,0,0,354,254,SCREEN_W,SCREEN_H);
+    //blit(black,screen,0,0,404,254,SCREEN_W,SCREEN_H);
+    //blit(black,screen,0,0,354,304,SCREEN_W,SCREEN_H);
+    //blit(white,screen,0,0,404,304,SCREEN_W,SCREEN_H);
+    //blit(white,screen,0,0,354,254,SCREEN_W,SCREEN_H);
     show_mouse(screen);
 }
 
@@ -44,7 +44,7 @@ int getMouseUser(struct player *player){
     trunc(x);
     trunc(y);
     //return if the mouv is valid or not (0 for invalid and 1 for valid)
-    good = placer(y,x,player);
+    good = placer(y,x,player,0);
     return good;
 }
 
@@ -63,6 +63,7 @@ int main(int argc , char *argv[])
     BITMAP *black=NULL;
     BITMAP *white=NULL;
     BITMAP *red=NULL;
+    BITMAP *none=NULL;
 
 
      //load images
@@ -74,6 +75,7 @@ int main(int argc , char *argv[])
     white=chargerImage("images/jeton_blanc.bmp");
     black=chargerImage("images/jeton_noir.bmp");
     red=chargerImage("images/jeton_rouge.bmp");
+    none=chargerImage("images/jeton_none.bmp");
 
 
     int lin,col; // get the input of the user for test
@@ -95,6 +97,7 @@ int main(int argc , char *argv[])
     creationGrille();
 
     initallegro(page,scorep1,scorep2,infos,tableau,white,black);
+    updateBlock(screen,white,black,red,none);
 
     redBox(screen,red,p1);
     while(!key[KEY_ESC]){
@@ -113,27 +116,33 @@ int main(int argc , char *argv[])
     }
 
     if(tour==0){
-        /*if(mouse_b&1){
+        if(mouse_b&1){
             validMouv = getMouseUser(p1);
             if(validMouv==1){
             clear(screen);
             initallegro(page,scorep1,scorep2,infos,tableau,white,black);
-            updateBlock(screen,white,black);
+            updateBlock(screen,white,black,red,none);
             tour++;
             }
-        }*/
+        }/*
         validMouv = niveau_medium(p1);
         if(validMouv==1){
         //for(i=0;i<10000000;i++){}
             //Sleep(500);
-            //clear(screen);
-            //initallegro(page,scorep1,scorep2,infos,tableau,white,black);
-            updateBlock(screen,white,black);
-            //redBox(screen,red,p1);
+            clear(screen);
+            initallegro(page,scorep1,scorep2,infos,tableau,white,black);
+            updateBlock(screen,white,black,red,none);
+            redBox(screen,red,p2);
             tour=1;
-    }
+        }
+        else {
+            allegro_message("ia ne peut pas jouer... a ton tour!");
+            tour=1;
+            Sleep(1500);
+        }*/
     }
     if(tour==1){
+        //if (redBox(screen,red,p2)==0) allegro_message("You can not play... hit P to pass"); //POUR LE MODE MANUEL
           /*  if(mouse_b&1){
             validMouv = getMouseUser(p2);
             if(validMouv==1){
@@ -143,21 +152,21 @@ int main(int argc , char *argv[])
             tour=0;
             }
         }*/
-        validMouv = niveau_medium(p2);
+        validMouv = niveau_hard(p2);
         if(validMouv==1){
         //for(i=0;i<10000000;i++){}
-            //Sleep(500);
-            //clear(screen);
-            //initallegro(page,scorep1,scorep2,infos,tableau,white,black);
-            updateBlock(screen,white,black);
-            //redBox(screen,red,p1);
+            Sleep(1000);
+            clear(screen);
+            initallegro(page,scorep1,scorep2,infos,tableau,white,black);
+            updateBlock(screen,white,black,red,none);
             tour=0;
+            redBox(screen,red,p1);
 
 
         }else {
             allegro_message("ia ne peut pas jouer... a ton tour!");
             tour=0;
-            Sleep("1500");
+            Sleep(1500);
         }
 
 

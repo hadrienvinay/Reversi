@@ -31,7 +31,7 @@ struct slot{
 
 //grille.c functions
 void initslot();
-void updateBlock(BITMAP *screen,BITMAP *white,BITMAP *black);
+void updateBlock(BITMAP *screen,BITMAP *white,BITMAP *black,BITMAP *red,BITMAP *none);
 void updateGrid(int number);
 void creationGrille();
 void udpateGrille();
@@ -40,7 +40,7 @@ void placeBlock(int x,int y,BITMAP *screen,BITMAP *color);
 void redBox(BITMAP *screen,BITMAP *red,struct player *player);
 
 //placement.c functions
-int placer(int x, int y, struct player *player);
+int placer(int x, int y, struct player *player, int canPlay);
 void horizontalChange(int x, int y, struct player *player);
 void verticalChange(int x, int y, struct player *player);
 void diagonalChange(int x, int y, struct player *player);

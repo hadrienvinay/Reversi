@@ -85,7 +85,7 @@ void placeBlock(int x,int y,BITMAP *screen,BITMAP *color)
     //blit(color,screen,0,0,y,x,SCREEN_W,SCREEN_H);
 }
 
-void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black)
+void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black,BITMAP *red, BITMAP *none)
 {
 
     char num = '0';
@@ -113,6 +113,10 @@ void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black)
             else
             {
                 printf("%d",matrice[i][j]->state);
+               /* if(matrice[i][j]->state==0)
+                {
+                    placeBlock(i,j,screen,none);
+                }*/
                 if(matrice[i][j]->state==1)
                 {
                     placeBlock(i,j,screen,black);
@@ -120,6 +124,10 @@ void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black)
                 else if(matrice[i][j]->state==2)
                 {
                     placeBlock(i,j,screen,white);
+                }
+                else if(matrice[i][j]->state==3)
+                {
+                    placeBlock(i,j,screen,red);
                 }
             }
             printf(" ");
@@ -171,7 +179,18 @@ void redBox(BITMAP *screen,BITMAP *red,struct player *player)
     int handPower;
     struct slot *slot=(struct slot *)malloc(sizeof(struct slot));
 
-
+/*
+    for(i=0; i<SIZE; i++)
+    {
+        for(j=0; j<SIZE; j++)
+        {
+            slot=getSlot(i,j);
+            if(slot->state==3) {
+                    slot->state=0;
+            }
+        }
+    }
+*/
     for(i=0; i<SIZE; i++)
     {
         for(j=0; j<SIZE; j++)
@@ -189,7 +208,7 @@ void redBox(BITMAP *screen,BITMAP *red,struct player *player)
 
         }
     }
-
+    //if (handPower==0) allegro_message("You can not play... hit P to pass"); //POUR LE MODE MANUEL
 }
 
 

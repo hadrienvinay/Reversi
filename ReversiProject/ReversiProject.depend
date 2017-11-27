@@ -51,7 +51,7 @@
 1511626663 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\allegro.c
 	"header.h"
 
-1511722713 c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\header.h
+1511782866 c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\header.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -59,16 +59,16 @@
 	<allegro.h>
 	<winalleg.h>
 
-1511727057 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\grille.c
+1511782919 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\grille.c
 	"header.h"
 
-1511722713 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\ia.c
+1511781866 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\ia.c
 	"header.h"
 
-1511727707 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\main.c
+1511782875 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\main.c
 	"header.h"
 
-1511720172 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\placement.c
+1511781911 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\placement.c
 	"header.h"
 
 1511618056 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\server.c

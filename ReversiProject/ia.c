@@ -129,8 +129,7 @@ int niveau_medium(struct player *player)
             }
             break;
     }
-
-   var = placer(slot->x,slot->y,player);
+    var = placer(slot->x,slot->y,player,canPlay);
    //free(powerSlot);
    //free(slot);
    return var;
@@ -148,6 +147,7 @@ int niveau_hard(struct player *player)
     int cpt3=0;
     int handPower=0;
     int maxHandPower=0;
+    int canPlay;
 
     struct slot *powerSlot;
     struct slot *slot;
@@ -186,8 +186,10 @@ int niveau_hard(struct player *player)
             }
         }
     }
-
-   var = placer(powerSlot->x,powerSlot->y,player);
+    printf("MAXHANDPOWER= %d",maxHandPower);
+    if (maxHandPower==0) canPlay=1;
+    else canPlay=0;
+   var = placer(powerSlot->x,powerSlot->y,player, canPlay);
    //free(powerSlot);
    //free(slot);
    return var;
@@ -218,7 +220,7 @@ int verticalCheck(int x, int y, struct player *player)
             i--;
             checkSlot=getSlot(i,j);
             printf("checkslot state i--: %d\n",i+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark1++;
                 //printf("mark: %d\n",mark);
@@ -262,7 +264,7 @@ int verticalCheck(int x, int y, struct player *player)
             i++;
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d\n",i+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark2++;
                 //printf("mark: %d\n",mark);
@@ -312,7 +314,7 @@ int horizontalCheck(int x, int y, struct player *player)
             j--;
             checkSlot=getSlot(i,j);
             printf("checkslot state j--: %d\n",j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark1++;
                 //printf("mark: %d\n",mark);
@@ -346,7 +348,7 @@ int horizontalCheck(int x, int y, struct player *player)
             j++;
             checkSlot=getSlot(i,j);
             printf("checkslot state j++: %d\n",j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark2++;
                 //printf("mark: %d\n",mark);
@@ -400,7 +402,7 @@ int diagonalCheck(int x, int y, struct player *player)
             i--;
             checkSlot=getSlot(i,j);
             printf("checkslot state i--: %d et j--: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark1++;
                 //printf("mark: %d\n",mark);
@@ -437,7 +439,7 @@ int diagonalCheck(int x, int y, struct player *player)
             i++;
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark2++;
                 //printf("mark: %d\n",mark);
@@ -476,7 +478,7 @@ int diagonalCheck(int x, int y, struct player *player)
             i--;
             checkSlot=getSlot(i,j);
             printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark3++;
                 //printf("mark: %d\n",mark);
@@ -514,7 +516,7 @@ int diagonalCheck(int x, int y, struct player *player)
             i++;
             checkSlot=getSlot(i,j);
             printf("checkslot state i++: %d et j--: %d\n",i+1,j+1);
-            if(checkSlot->state != 0 && checkSlot->state != player->state){
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark4++;
                 //printf("mark: %d\n",mark);
