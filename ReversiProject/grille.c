@@ -26,7 +26,6 @@ void initslot()
             {
                 newslot->state=1;
                 //newslot->slot=chargerImage("images/black.bmp");
-
             }
             //else other case are empty
             else
@@ -39,7 +38,6 @@ void initslot()
             newslot = newslot->next;
         }
     }
-
 }
 
 void creationGrille()
@@ -215,12 +213,10 @@ int redBox(BITMAP *screen,BITMAP *red,struct player *player)
 
 
 //update 4block in the grid with one byte
-void updateGrid(int number)
+void updateGrid(int number,int loop)
 {
     int i,j;
     int case1,case2,case3,case4;
-    char gridBlock[4];
-    int loop=0;
     case1 = number & 0b11000000;
     case2 = number & 0b00110000;
     case3 = number & 0b00001100;
@@ -274,10 +270,10 @@ void updateGrid(int number)
         break;
     }
 
-    gridBlock[0]=case1;
-    gridBlock[1]=case2;
-    gridBlock[2]=case3;
-    gridBlock[3]=case4;
+    gridBlock[loop]=case1;
+    gridBlock[loop+1]=case2;
+    gridBlock[loop+2]=case3;
+    gridBlock[loop+3]=case4;
 
     printf("\n");
     for(i=0; i<2; i++)

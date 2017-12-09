@@ -10,6 +10,7 @@
 
 //struct of plot
 struct slot *matrice[SIZE][SIZE];
+int gridBlock[64];
 
 struct player{
 char nom[20];
@@ -32,7 +33,7 @@ struct slot{
 //grille.c functions
 void initslot();
 void updateBlock(BITMAP *screen,BITMAP *white,BITMAP *black,BITMAP *red,BITMAP *none);
-void updateGrid(int number);
+void updateGrid(int number, int loop);
 void creationGrille();
 void udpateGrille();
 void getScore(struct player *player1,struct player *player2);
@@ -55,6 +56,15 @@ int horizontalCheck(int x, int y, struct player *player);
 int verticalCheck(int x, int y, struct player *player);
 int diagonalCheck(int x, int y, struct player *player);
 int iaIsAble(int x, int y);
+
+//main.c functions
+void initMenu(BITMAP *page, BITMAP *menu);
+int menuChoice();
+int chooseIaLevel();
+void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BITMAP *tableau,BITMAP *white,BITMAP *black);
+int getMouseUser(struct player *player);
+
+
 
 
 
