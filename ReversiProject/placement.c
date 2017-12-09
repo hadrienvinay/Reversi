@@ -4,7 +4,6 @@
 int placer(int x, int y, struct player *player, int canPlay)
 {
     //printf qui ne fait pas bugger le programme wtffff NE PAS TOUCHER
-    printf("entre dans placer");
     struct slot *slot ;
     //struct slot markSlot;
     slot=(struct slot *)malloc(sizeof(struct slot));

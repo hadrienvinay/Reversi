@@ -83,21 +83,7 @@ int main(int argc , char *argv[])
                 creationGrille();
 
                 initallegro(page,scorep1,scorep2,infos,tableau,white,black);
-                for(i=0; i<16; i++)
-                {
-                    tab_hex[i]=0xAA;
-                    updateGrid(tab_hex[i],loop);
-                    loop=loop+4;
-                }
 
-                for(i=0; i<SIZE; i++)
-                {
-                    for(j=0; j<SIZE; j++)
-                    {
-                        int indice=i*SIZE+j;
-                        matrice[i][j]->state=gridBlock[indice];
-                    }
-                }
                 updateBlock(screen,white,black,red,none);
                 redBox(screen,red,p1);
                 while(!key[KEY_Q])
@@ -413,6 +399,31 @@ int main(int argc , char *argv[])
 
 
         }
+    }
+
+    // online mode connect to server
+    if(jouer==1) {
+        //connect to server
+
+        //send ok and receive matrix and update matrix and display it
+        for(i=0; i<16; i++)
+                {
+                    tab_hex[i]=0xAA;
+                    updateGrid(tab_hex[i],loop);
+                    loop=loop+4;
+                }
+
+                for(i=0; i<SIZE; i++)
+                {
+                    for(j=0; j<SIZE; j++)
+                    {
+                        int indice=i*SIZE+j;
+                        matrice[i][j]->state=gridBlock[indice];
+                    }
+                }
+
+                // send next move 0x05
+
     }
 
 

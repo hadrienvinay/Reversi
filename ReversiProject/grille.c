@@ -111,10 +111,7 @@ void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black,BITMAP *red, BITMAP
             else
             {
                 printf("%d",matrice[i][j]->state);
-               /* if(matrice[i][j]->state==0)
-                {
-                    placeBlock(i,j,screen,none);
-                }*/
+
                 if(matrice[i][j]->state==1)
                 {
                     placeBlock(i,j,screen,black);
@@ -177,7 +174,7 @@ int redBox(BITMAP *screen,BITMAP *red,struct player *player)
     int handPower;
     struct slot *slot=(struct slot *)malloc(sizeof(struct slot));
 
-/*
+
     for(i=0; i<SIZE; i++)
     {
         for(j=0; j<SIZE; j++)
@@ -188,7 +185,7 @@ int redBox(BITMAP *screen,BITMAP *red,struct player *player)
             }
         }
     }
-*/
+
     for(i=0; i<SIZE; i++)
     {
         for(j=0; j<SIZE; j++)
@@ -285,6 +282,7 @@ void updateGrid(int number,int loop)
         }
         printf("\n");
     }
+
 
 }
 
