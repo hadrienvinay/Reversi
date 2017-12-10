@@ -2,7 +2,7 @@
 1512848156 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\allegro.c
 	"header.h"
 
-1512851750 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
+1512929163 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -26,7 +26,7 @@
 	<sys/socket.h>
 	<arpa/inet.h>
 
-1512907651 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
+1512929016 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
 	"header.h"
 
 1512923558 source:c:\users\flavien\documents\ecole ece\ing4\reversi\reversiproject\allegro.c

@@ -1,3 +1,8 @@
+/*
+Authors : Flavien Pechere
+          Hadrien Vinay
+          Arnaud Goguel
+*/
 #include "header.h"
 
 // Fonctionne comme load_bitmap sauf qu'il ne prend pas NULL en 2ème paramètre
@@ -17,6 +22,7 @@
         return bmp;
     }
 
+//allegro init
     void lancerToutAllegro(int largeur, int hauteur)
     {
         allegro_init();

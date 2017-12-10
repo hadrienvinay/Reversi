@@ -1,4 +1,9 @@
-/*#include "header.h"
+/*
+Authors : Flavien Pechere
+          Hadrien Vinay
+          Arnaud Goguel
+
+#include "header.h"
 #include <sys/socket.h>
 #include <arpa/inet.h>
 

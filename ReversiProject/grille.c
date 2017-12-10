@@ -1,5 +1,12 @@
+/*
+Authors : Flavien Pechere
+          Hadrien Vinay
+          Arnaud Goguel
+*/
+
 #include "header.h"
 
+//init our slots structures
 void initslot()
 {
     int i,j;
@@ -40,6 +47,7 @@ void initslot()
     }
 }
 
+//console display of the grid
 void creationGrille()
 {
     int i,j;
@@ -75,6 +83,7 @@ void creationGrille()
 
 }
 
+//draw a bloc on the screen
 void placeBlock(int x,int y,BITMAP *screen,BITMAP *color)
 {
     x=(x*50)+104;
@@ -83,6 +92,7 @@ void placeBlock(int x,int y,BITMAP *screen,BITMAP *color)
     //blit(color,screen,0,0,y,x,SCREEN_W,SCREEN_H);
 }
 
+//update our matrix and place our blocs
 void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black,BITMAP *red, BITMAP *none)
 {
 
@@ -131,7 +141,7 @@ void updateBlock(BITMAP *screen,BITMAP *white, BITMAP *black,BITMAP *red, BITMAP
     }
 }
 
-//get the actual score of the two player
+//get the actual score of the two player and set end of the game if all blocs are full
 void getScore(struct player *player1,struct player *player2)
 {
     int i,j;
@@ -169,6 +179,7 @@ void getScore(struct player *player1,struct player *player2)
 
 }
 
+//show the possibility moves
 int redBox(BITMAP *screen,BITMAP *red,struct player *player)
 {
     int i,j;
@@ -214,11 +225,12 @@ int redBox(BITMAP *screen,BITMAP *red,struct player *player)
 
 
 //update 4block in the grid with one byte
+// get an hex number (8bits) and convert it tot 4*2bits
 void updateGrid(int number,int loop)
 {
     int i,j;
-    int case1,case2,case3,case4;
-    case1 = number & 0b11000000;
+    int case1,case2,case3,case4; // four cases
+    case1 = number & 0b11000000;//convert in two bits
     case2 = number & 0b00110000;
     case3 = number & 0b00001100;
     case4 = number & 0b00000011;
@@ -271,6 +283,7 @@ void updateGrid(int number,int loop)
         break;
     }
 
+    //update our tab of blocks
     gridBlock[loop]=case1;
     gridBlock[loop+1]=case2;
     gridBlock[loop+2]=case3;

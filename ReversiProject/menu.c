@@ -1,6 +1,11 @@
+/*
+Authors : Flavien Pechere
+          Hadrien Vinay
+          Arnaud Goguel
+*/
 #include "header.h"
 
-
+//display menu allegro
 void initMenu(BITMAP *page, BITMAP *menu)
 {
     blit(menu,screen,0,0,0,0,SCREEN_W,SCREEN_H);
@@ -10,6 +15,7 @@ void initMenu(BITMAP *page, BITMAP *menu)
 
 }
 
+//return selected case to play
 int menuChoice()
 {
     // play player vs player
@@ -36,6 +42,7 @@ int menuChoice()
 
 }
 
+//return ia level
 int chooseIaLevel()
 {
    // play easy ia
@@ -56,6 +63,7 @@ int chooseIaLevel()
     else return 0;
 }
 
+//update all element on our grid
 void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos,BITMAP *timer, BITMAP *tableau,BITMAP *white,BITMAP *black)
 {
 
@@ -91,6 +99,7 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos,BITM
     show_mouse(screen);
 }
 
+//convert mouse_x and mouse_y in integer (0,0) or (7,6) ...
 int getMouseUser(struct player *player)
 {
     double x,y;
