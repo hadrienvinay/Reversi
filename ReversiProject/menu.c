@@ -75,11 +75,11 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos,BITM
                makecol(255,255,255),//Color text
                makecol( 38,51,111) );//Put color behind text
 
-    textout_ex(screen,font,"Kevin",50,140,makecol(255,255,255),makecol( 38,51,111));
+    textout_ex(screen,font,"Player 1",50,140,makecol(255,255,255),makecol( 38,51,111));
 
     //white player
     textout_ex(screen,font,"White Player :",650,120,makecol(255,255,255),makecol( 38,51,111));
-    textout_ex(screen,font,"Dylan",650,140,makecol(255,255,255),makecol( 38,51,111));
+    textout_ex(screen,font,"Player 2",650,140,makecol(255,255,255),makecol( 38,51,111));
 
     //init tableau and 4 start boxes
     // the first case is located in 200,100 ( X,Y) and each case are separated by 50px;
