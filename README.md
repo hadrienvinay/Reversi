@@ -7,10 +7,12 @@ In this document, we can find two versions of our project :
 		we connect to the server
 		we receive and send message
 		we display the matrix we received
-		we send x,y move of our player
+		we send x,y moves of our player
 	
-And a video of our project working
+And a couple of videos of our project working that you can find here : 
+https://drive.google.com/open?id=1xtsmKMpul0fUbzZleRCuIGL0IWOjO6F4
+https://drive.google.com/open?id=1TeH6Q-4OugwrWWHVwXwP0syvGhEsabBm
 
 We have some difficulties with the gameMaster and the gameController so we could't be connected with them
 In simulation, we can receive a virtual message and update our matrix in function.
-We also implemented the game functions and 3levels of Ia to play against.
+We also implemented the game functions and 3 levels of Ia to play against.
