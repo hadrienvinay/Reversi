@@ -2,8 +2,8 @@
 # Group Arnaud Goguel, Flavien Pechere, Hadrien Vinay
 
 In this document, we can find two versions of our project : 
-	one offline part where you can play with a graphical interactions with allegro 4.2
-	one online part where we are the game player: 
+	one offline part where you can play with a graphical interactions with allegro 4.2 (ReversiProject)
+	one online part where we are the game player: (ServerProject)
 		we connect to the server
 		we receive and send message
 		we display the matrix we received
