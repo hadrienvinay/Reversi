@@ -155,7 +155,7 @@ start:
                         timerInt=15-(msec/1000);
                         clear_bitmap(timer);
                         textprintf_ex(timer, font, 0, 0, makecol(255, 255, 255),-1, "TIMER : %d", timerInt);
-                        blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+                        blit(timer,screen,0,0,50,200,SCREEN_W,SCREEN_H);
                     }
                     if(tour==1)
                     {
@@ -190,7 +190,7 @@ start:
                         timerInt=15-(msec/1000);
                         clear_bitmap(timer);
                         textprintf_ex(timer, font, 0, 0, makecol(255, 255, 255),-1, "TIMER : %d", timerInt);
-                        blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+                        blit(timer,screen,0,0,50,200,SCREEN_W,SCREEN_H);
                     }
 
 
@@ -222,11 +222,11 @@ start:
                         printf("\n\nGAME TIME : %d seconds",totalTime);
                         if(p1->point > p2->point)
                         {
-                            allegro_message("Black wins !");
+                            allegro_message("Black wins !\n Score -> Black: %d  White: %d\n",p1->point,p2->point);
                         }
                         else
                         {
-                            allegro_message("White wins !");
+                            allegro_message("White wins !\n Score -> Black: %d  White: %d\n",p1->point,p2->point);
                         }
                         clear_bitmap(timer);
                         clear_bitmap(black);
@@ -259,7 +259,7 @@ start:
                 scorep1=create_bitmap(100,20);
                 scorep2=create_bitmap(100,20);
                 infos=create_bitmap(200,20);
-                timer=create_bitmap(200,20);
+                timer=create_bitmap(100,20);
                 tableau=chargerImage("images/tableau.bmp");
                 white=chargerImage("images/jeton_blanc.bmp");
                 black=chargerImage("images/jeton_noir.bmp");
@@ -335,7 +335,7 @@ start:
                         timerInt=15-(msec/1000);
                         clear_bitmap(timer);
                         textprintf_ex(timer, font, 0, 0, makecol(255, 255, 255),-1, "TIMER : %d", timerInt);
-                        blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+                        blit(timer,screen,0,0,50,200,SCREEN_W,SCREEN_H);
                     }
                     if(tour==1)
                     {
@@ -357,6 +357,7 @@ start:
                         }
                         if(validMouv==1)
                         {
+
                             Sleep(1000);
                             clear(screen);
                             initallegro(page,scorep1,scorep2,infos,timer,tableau,white,black);
@@ -391,30 +392,32 @@ start:
                     {
                         textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
                     }
-                    blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+                    blit(timer,screen,0,0,50,200,SCREEN_W,SCREEN_H);
                     //blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
                     //blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
                     if(p1->playing==1)
                     {
+                        p1->point=(p1->point*100)/(SIZE*SIZE);
+                        p2->point=(p2->point*100)/(SIZE*SIZE);
                         if(p1->point>p2->point) p1->point+=100;
                         else p2->point+=100;
                         clockGen = clock() - clockBegin;
                         msecTot = clockGen * 1000 / CLOCKS_PER_SEC;
                         totalTime=msecTot/1000;
-                        p1->point=(p1->point*100)/(SIZE*SIZE);
-                        p2->point=(p2->point*100)/(SIZE*SIZE);
+
                         p1->point=((totalTime-tmrCountP1)/totalTime)*100 +p1->point;
                         p2->point=((totalTime-tmrCountP2)/totalTime)*100 +p2->point;
                         Sleep(4000);
                         printf(" \n\nPlayer 1 : %d ---- Player 2 : %d",p1->point,p2->point);
                         printf("\n\nGAME TIME : %d seconds",totalTime);
+                        menuIachoice=0;
                         if(p1->point > p2->point)
                         {
-                            allegro_message("Black wins !");
+                            allegro_message("Black wins !\n Score -> Black: %d  White: %d\n",p1->point,p2->point);
                         }
                         else
                         {
-                            allegro_message("White wins !");
+                            allegro_message("White wins !\n Score -> Black: %d  White: %d\n",p1->point,p2->point);
                         }
                         clear_bitmap(timer);
                         clear_bitmap(black);
@@ -456,8 +459,8 @@ start:
 
                 initslot();
                 creationGrille();
-                clockBegin=clock();
-                before=clock();
+                //clockBegin=clock();
+                //before=clock();
                 initallegro(page,scorep1,scorep2,infos,timer,tableau,white,black);
                 updateBlock(screen,white,black,red,none);
                 while(!key[KEY_Q])
@@ -468,8 +471,8 @@ start:
                     //clear_bitmap(infos);
 
                     validMouv=0;
-                    msecTot = clockGen * 1000 / CLOCKS_PER_SEC;
-                    totalTime=msecTot/1000;
+                    //msecTot = clockGen * 1000 / CLOCKS_PER_SEC;
+                    //totalTime=msecTot/1000;
                     //updateGrid(0b10010011);
                     if(key[KEY_P])
                     {
@@ -482,21 +485,23 @@ start:
 
                     if(tour==0)
                     {
-                        before=clock();
-                        validMouv = niveau_hard(p1);
+                        //before=clock();
+                        validMouv = niveau_medium(p1);
                         if(validMouv==1)
                         {
                             //Sleep(500);
                             //clear(screen);
                             //initallegro(page,scorep1,scorep2,infos,tableau,white,black);
                             updateBlock(screen,white,black,red,none);
-                            tmrCountP1=tmrCountP1+(msec/1000);
+                            //tmrCountP1=tmrCountP1+(msec/1000);
                             tour++;
-                            before=clock();
+                            Sleep(500);
+                            //before=clock();
                         }
-                        difference = clock() - before;
-                        msec = difference * 1000 / CLOCKS_PER_SEC;
-                        timerInt=15-(msec/1000);
+                        else{tour++;}
+                        //difference = clock() - before;
+                        //msec = difference * 1000 / CLOCKS_PER_SEC;
+                        //timerInt=15-(msec/1000);
                         //clear_bitmap(timer);
                         //textprintf_ex(timer, font, 0, 0, makecol(255, 255, 255),-1, "TIMER : %d", timerInt);
                         //blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
@@ -511,8 +516,9 @@ start:
                             //initallegro(page,scorep1,scorep2,infos,tableau,white,black);
                             updateBlock(screen,white,black,red,none);
                             tour=0;
-                            before=clock();
-                            tmrCountP2=tmrCountP2+(msec/1000);
+                            Sleep(500);
+                            //before=clock();
+                            //tmrCountP2=tmrCountP2+(msec/1000);
                         }
 
                         else
@@ -522,9 +528,9 @@ start:
                             Sleep(1500);
                             cptTime++;
                         }
-                        difference = clock() - before;
-                        msec = difference * 1000 / CLOCKS_PER_SEC;
-                        timerInt=15-(msec/1000);
+                        //difference = clock() - before;
+                        //msec = difference * 1000 / CLOCKS_PER_SEC;
+                        //timerInt=15-(msec/1000);
 
 
                     }
@@ -533,7 +539,7 @@ start:
                     getScore(p1,p2);
                     textprintf_ex(scorep1, font, 0, 0, makecol(255, 255, 255),-1, "Points : %d", p1->point);
                     textprintf_ex(scorep2, font, 0, 0, makecol(255, 255, 255),-1, "Points : %d", p2->point);
-                    textprintf_ex(timer, font, 0, 0, makecol(255, 255, 255),-1, "Timer : %d", timerInt);
+                    //textprintf_ex(timer, font, 0, 0, makecol(255, 255, 255),-1, "Timer : %d", timerInt);
                     if(tour==0)
                     {
                         textout_ex(infos,font,"Playing : Black ",0,0,makecol(255,255,255),makecol( 38,51,111));
@@ -542,11 +548,13 @@ start:
                     {
                         textout_ex(infos,font,"Playing : White ",0,0,makecol(255,255,255),makecol( 38,51,111));
                     }
-                    blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
+                    //blit(timer,screen,0,0,50,160,SCREEN_W,SCREEN_H);
                     //blit(scorep2,screen,0,0,650,160,SCREEN_W,SCREEN_H);
                     //blit(infos,screen,0,0,300,50,SCREEN_W,SCREEN_H);
                     if(p1->playing==1)
                     {
+                        p1->point=(p1->point*100)/(SIZE*SIZE);
+                        p2->point=(p2->point*100)/(SIZE*SIZE);
 
                         if(p1->point > p2->point)
                         {
@@ -556,24 +564,23 @@ start:
                         {
                             p2->point+=100;
                         }
-                        clockGen = clock() - clockBegin;
-                        msecTot = clockGen * 1000 / CLOCKS_PER_SEC;
-                        totalTime=msecTot/1000;
-                        p1->point=(p1->point*100)/(SIZE*SIZE);
-                        p2->point=(p2->point*100)/(SIZE*SIZE);
-                        printf("%d\n%d\n%d",totalTime,tmrCountP1,p1->point);
-                        p1->point=((totalTime-tmrCountP1)/totalTime)*100 + p1->point;
-                        p2->point=((totalTime-tmrCountP2)/totalTime)*100 + p2->point;
+                        //clockGen = clock() - clockBegin;
+                        //msecTot = clockGen * 1000 / CLOCKS_PER_SEC;
+                        //totalTime=msecTot/1000;
+
+                        //printf("%d\n%d",tmrCountP1,p1->point);
+                        //p1->point=(tmrCountP1)*100 + p1->point;
+                        //p2->point=(tmrCountP2)*100 + p2->point;
                         Sleep(2000);
                         printf(" \n\nPlayer 1 : %d ---- Player 2 : %d",p1->point,p2->point);
-                        printf("\n\nGAME TIME : %d",totalTime);
+                        //printf("\n\nGAME TIME : %d",totalTime);
                         if(p1->point > p2->point)
                         {
-                            allegro_message("Black wins !");
+                            allegro_message("Black wins !\n Score -> Black: %d  White: %d\n",p1->point,p2->point);
                         }
                         else
                         {
-                            allegro_message("White wins !");
+                            allegro_message("White wins !\n Score -> Black: %d  White: %d\n",p1->point,p2->point);
                         }
                         clear_bitmap(timer);
                         clear_bitmap(black);
