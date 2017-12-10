@@ -42,7 +42,11 @@ int niveau_medium(struct player *player)
                             }
                             else {
                                 //printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+<<<<<<< HEAD
                               //  printf("Content of the slot : %d\n", slot->state);
+=======
+                                //printf("Content of the slot : %d\n", slot->state);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
                             }
                         }
                     }
@@ -68,8 +72,13 @@ int niveau_medium(struct player *player)
                                 canPlay=cpt1+cpt2+cpt3;
                             }
                             else {
+<<<<<<< HEAD
                               //  printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
                               //  printf("Content of the slot : %d\n", slot->state);
+=======
+                                //printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                               // printf("Content of the slot : %d\n", slot->state);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
                             }
                         }
                     }
@@ -95,7 +104,11 @@ int niveau_medium(struct player *player)
                                 canPlay=cpt1+cpt2+cpt3;
                             }
                             else {
+<<<<<<< HEAD
                                // printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+=======
+                                //printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
                                 //printf("Content of the slot : %d\n", slot->state);
                             }
                         }
@@ -122,7 +135,11 @@ int niveau_medium(struct player *player)
                                 canPlay=cpt1+cpt2+cpt3;
                             }
                             else {
+<<<<<<< HEAD
                                // printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+=======
+                                //printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
                                 //printf("Content of the slot : %d\n", slot->state);
                             }
                         }
@@ -277,8 +294,13 @@ int niveau_boss(struct player *player)
                     }
                 }
                 else {
+<<<<<<< HEAD
                    // printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
                    // printf("Content of the slot : %d\n", slot->state);
+=======
+                    //printf("IA can't play on that slot... sorry ! --> X = %d -- Y = %d\n",x,y);
+                    //printf("Content of the slot : %d\n", slot->state);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
                 }
             }
             if(handPower>maxHandPower && angleSlot==0 && boardSlot==0){         //it compare that to the best hand we can make
@@ -315,7 +337,11 @@ int verticalCheck(int x, int y, struct player *player)
     int totmark=0;
 
     checkSlot=(struct slot *)malloc(sizeof(struct slot));
+<<<<<<< HEAD
    // printf("vertical check\n");
+=======
+    //printf("vertical check\n");
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
 
     while(i >= 0 && burn == 0){     //We check from x to x--
 
@@ -407,7 +433,11 @@ int horizontalCheck(int x, int y, struct player *player)
     int mark2 = 0;
     int totmark = 0;
 
+<<<<<<< HEAD
   //  printf("Horizontal check\n");
+=======
+    //printf("Horizontal check\n");
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
     checkSlot=(struct slot *)malloc(sizeof(struct slot));
 
 
@@ -417,7 +447,11 @@ int horizontalCheck(int x, int y, struct player *player)
         {
             j--;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
           //  printf("checkslot state j--: %d\n",j+1);
+=======
+            //printf("checkslot state j--: %d\n",j+1);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark1++;
@@ -451,7 +485,11 @@ int horizontalCheck(int x, int y, struct player *player)
         {
             j++;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
           //  printf("checkslot state j++: %d\n",j+1);
+=======
+           // printf("checkslot state j++: %d\n",j+1);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark2++;
@@ -505,7 +543,11 @@ int diagonalCheck(int x, int y, struct player *player)
             j--;
             i--;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
           //  printf("checkslot state i--: %d et j--: %d\n",i+1,j+1);
+=======
+           // printf("checkslot state i--: %d et j--: %d\n",i+1,j+1);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark1++;
@@ -542,7 +584,11 @@ int diagonalCheck(int x, int y, struct player *player)
             j++;
             i++;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
           //  printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
+=======
+            //printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark2++;
@@ -581,7 +627,11 @@ int diagonalCheck(int x, int y, struct player *player)
             j++;
             i--;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
         //    printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
+=======
+            //printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark3++;
@@ -619,7 +669,11 @@ int diagonalCheck(int x, int y, struct player *player)
             j--;
             i++;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
            // printf("checkslot state i++: %d et j--: %d\n",i+1,j+1);
+=======
+            //printf("checkslot state i++: %d et j--: %d\n",i+1,j+1);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark4++;

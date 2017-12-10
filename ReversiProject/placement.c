@@ -4,6 +4,7 @@
 int placer(int x, int y, struct player *player, int canPlay)
 {
     //printf qui ne fait pas bugger le programme wtffff NE PAS TOUCHER
+    //printf("entre dans placer");
     struct slot *slot ;
     //struct slot markSlot;
     slot=(struct slot *)malloc(sizeof(struct slot));
@@ -19,8 +20,8 @@ int placer(int x, int y, struct player *player, int canPlay)
             slot = getSlot(x,y);
             if(slot->state == 0){
                 printf("You can't play on that slot... sorry !\n");
-                printf("Content of the slot : %d\n", slot->state);
-                printf("PLAYER %d\n", player->state);
+                //printf("Content of the slot : %d\n", slot->state);
+                //printf("PLAYER %d\n", player->state);
                 //free(slot);
                 return 0;
             }
@@ -28,8 +29,8 @@ int placer(int x, int y, struct player *player, int canPlay)
         }
         else {
             printf("You can't play on that slot... sorry !\n");
-            printf("Content of the slot : %d\n", slot->state);
-            printf("PLAYER %d\n", player->state);
+            //printf("Content of the slot : %d\n", slot->state);
+            //printf("PLAYER %d\n", player->state);
             //free(slot);
             return 0;
         }
@@ -103,7 +104,11 @@ void verticalChange(int x, int y, struct player *player)
         //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
+<<<<<<< HEAD
             //printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+          //  printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             //printf("\n \n CHANGE ETAT %d\n\n",player->state);
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
@@ -127,7 +132,11 @@ void verticalChange(int x, int y, struct player *player)
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
+<<<<<<< HEAD
                 //printf("mark: %d\n",mark);
+=======
+              //  printf("mark: %d\n",mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             }
             else burn=1;
         }
@@ -150,11 +159,19 @@ void verticalChange(int x, int y, struct player *player)
         i=x;
         j=y;
         mark++;
+<<<<<<< HEAD
        // printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
             //printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
               //          printf("\n \n CHANGE ETAT %d\n\n",player->state);
+=======
+        //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+        while(mark!=0)
+        {
+           // printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+             //           printf("\n \n CHANGE ETAT %d\n\n",player->state);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
 
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
@@ -176,7 +193,11 @@ void horizontalChange(int x, int y, struct player *player)
     int mark = 0;
 
     checkSlot=(struct slot *)malloc(sizeof(struct slot));
+<<<<<<< HEAD
    // printf("Horizontal check\n");
+=======
+    //printf("Horizontal check\n");
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
 
 
     while(j >= 0 && burn == 0){     //We check from y to y--
@@ -185,11 +206,19 @@ void horizontalChange(int x, int y, struct player *player)
         {
             j--;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
             //printf("checkslot state j--: %d\n",j+1);
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                // printf("mark: %d\n",mark);
+=======
+      //      printf("checkslot state j--: %d\n",j+1);
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
+
+                mark++;
+        //        printf("mark: %d\n",mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             }
             else burn=1;
         }
@@ -215,7 +244,11 @@ void horizontalChange(int x, int y, struct player *player)
         //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
+<<<<<<< HEAD
            // printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+          //  printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             j--;
@@ -261,7 +294,11 @@ void horizontalChange(int x, int y, struct player *player)
         i=x;
         j=y;
         mark++;
+<<<<<<< HEAD
        // printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+        //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
         while(mark!=0)
         {
           //  printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
@@ -286,7 +323,11 @@ void diagonalChange(int x, int y, struct player *player)
     int canPlay=1;
 
     checkSlot=(struct slot *)malloc(sizeof(struct slot));
+<<<<<<< HEAD
    // printf("Diagonal check\n");
+=======
+    //printf("Diagonal check\n");
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
 
     while(j >= 0 && i >= 0 && burn == 0){     //we check from x,y to x--,y--
 
@@ -295,11 +336,19 @@ void diagonalChange(int x, int y, struct player *player)
             j--;
             i--;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
            // printf("FIRST checkslot state i--: %d et j--: %d\n",i+1,j+1);
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                // printf("mark: %d\n",mark);
+=======
+          //  printf("FIRST checkslot state i--: %d et j--: %d\n",i+1,j+1);
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
+
+                mark++;
+              //  printf("mark: %d\n",mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             }
             else burn=1;
         }
@@ -322,10 +371,17 @@ void diagonalChange(int x, int y, struct player *player)
         i=x;
         j=y;
         mark++;
+<<<<<<< HEAD
        // printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
             //printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+        //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+        while(mark!=0)
+        {
+           // printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             i--;
@@ -346,11 +402,19 @@ void diagonalChange(int x, int y, struct player *player)
             j++;
             i++;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
            // printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 //printf("mark: %d\n",mark);
+=======
+          //  printf("checkslot state i++: %d et j++: %d\n",i+1,j+1);
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
+
+                mark++;
+             //   printf("mark: %d\n",mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             }
             else burn=1;
         }
@@ -373,10 +437,17 @@ void diagonalChange(int x, int y, struct player *player)
         i=x;
         j=y;
         mark++;
+<<<<<<< HEAD
        // printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
             //printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+        //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+        while(mark!=0)
+        {
+           // printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             i++;
@@ -399,11 +470,19 @@ void diagonalChange(int x, int y, struct player *player)
             j++;
             i--;
             checkSlot=getSlot(i,j);
+<<<<<<< HEAD
            // printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
                 //printf("mark: %d\n",mark);
+=======
+            //printf("checkslot state i--: %d et j++: %d\n",i+1,j+1);
+            if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
+
+                mark++;
+               // printf("mark: %d\n",mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             }
             else burn=1;
         }
@@ -429,7 +508,11 @@ void diagonalChange(int x, int y, struct player *player)
         //printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
+<<<<<<< HEAD
          //   printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+          //  printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             i--;
@@ -455,7 +538,11 @@ void diagonalChange(int x, int y, struct player *player)
             if(checkSlot->state != 0 && checkSlot->state != 3 && checkSlot->state != player->state){
 
                 mark++;
+<<<<<<< HEAD
                 //printf("mark: %d\n",mark);
+=======
+              //  printf("mark: %d\n",mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             }
             else burn=1;
         }
@@ -481,7 +568,11 @@ void diagonalChange(int x, int y, struct player *player)
        // printf("onrentre dans le if, i= %d, j=%d, mark=%d",i+1,j+1,mark);
         while(mark!=0)
         {
+<<<<<<< HEAD
             //printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+=======
+         //   printf("premier tour de boucle, i= %d, j=%d, mark=%d",i+1,j+1,mark);
+>>>>>>> 01cba4cc3bdb896f379b807b6faeb7e9234e3a83
             checkSlot=getSlot(i,j);
             checkSlot->state=player->state;       //we change the state of the slot that has been token
             i++;
