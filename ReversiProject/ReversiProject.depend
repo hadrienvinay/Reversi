@@ -2,7 +2,7 @@
 1512848156 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\allegro.c
 	"header.h"
 
-1512848262 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
+1512851750 c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\header.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -10,22 +10,22 @@
 	<allegro.h>
 	<winalleg.h>
 
-1512848229 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\grille.c
+1512905440 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\grille.c
 	"header.h"
 
-1511862692 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\ia.c
+1512905749 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\ia.c
 	"header.h"
 
-1512848083 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\placement.c
+1512907349 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\menu.c
+	"header.h"
+
+1512905849 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\placement.c
 	"header.h"
 
 1511358512 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\server.c
 	<sys/socket.h>
 	<arpa/inet.h>
 
-1512848511 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
-	"header.h"
-
-1512840240 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\menu.c
+1512907651 source:c:\users\hadrien\documents\embedded systems ece\c programming\reversi\reversi\reversiproject\main.c
 	"header.h"
 

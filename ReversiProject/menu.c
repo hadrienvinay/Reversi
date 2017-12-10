@@ -27,6 +27,13 @@ int menuChoice()
     {
         return 3;
     }
+    if(mouse_x>10 && mouse_x<100 && mouse_y>545 && mouse_y<600 && mouse_b&1){
+        return 4;
+    }
+    if(mouse_x>290 && mouse_x<530 && mouse_y>500 && mouse_y<540 && mouse_b&1){
+        return 5;
+    }
+
 }
 
 int chooseIaLevel()
@@ -49,7 +56,7 @@ int chooseIaLevel()
     else return 0;
 }
 
-void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BITMAP *tableau,BITMAP *white,BITMAP *black)
+void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos,BITMAP *timer, BITMAP *tableau,BITMAP *white,BITMAP *black)
 {
 
     //change screen color
@@ -57,6 +64,7 @@ void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BIT
     clear_to_color(scorep1, makecol(38,51,111));
     clear_to_color(scorep2, makecol(200,51,1));
     clear_to_color(infos, makecol(38,51,111));
+    clear_to_color(timer, makecol(38,51,111));
 
     //black player infos
     textout_ex(screen,//Specify bitmap on the screen

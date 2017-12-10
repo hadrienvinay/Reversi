@@ -138,6 +138,8 @@ void getScore(struct player *player1,struct player *player2)
     player1->point=0;
     player2->point=0;
     int compteur=0;
+    int compteurWhite=0;
+    int compteurBlack=0;
 
     for(i=0; i<SIZE; i++)
     {
@@ -146,10 +148,12 @@ void getScore(struct player *player1,struct player *player2)
             if(matrice[i][j]->state==1)
             {
                 player1->point++;
+                compteurBlack++;
             }
             if(matrice[i][j]->state==2)
             {
                 player2->point++;
+                compteurWhite++;
 
             }
             if(matrice[i][j]->state==0)
@@ -158,7 +162,7 @@ void getScore(struct player *player1,struct player *player2)
             }
         }
     }
-    if(compteur==0){
+    if(compteur==0 || compteurBlack==0 || compteurWhite==0){
         player1->playing=1;
         player2->playing=1;
     }

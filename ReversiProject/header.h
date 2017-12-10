@@ -61,7 +61,7 @@ int iaIsAble(int x, int y);
 void initMenu(BITMAP *page, BITMAP *menu);
 int menuChoice();
 int chooseIaLevel();
-void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos, BITMAP *tableau,BITMAP *white,BITMAP *black);
+void initallegro(BITMAP *page,BITMAP *scorep1,BITMAP *scorep2,BITMAP *infos,BITMAP *timer, BITMAP *tableau,BITMAP *white,BITMAP *black);
 int getMouseUser(struct player *player);
 
 
